@@ -6,9 +6,9 @@ class_name SonParser
 # see Constants for reference
 
 # Dictionary[Dictionary[float, String]]
-func parse_song(song_name:String, left:Array) -> Dictionary[String, Dictionary]:
-	var file_lines:Array[String] = read_song_file(song_name)
-	var song_parsed = {}
+func parse_song(song_name:String) -> Dictionary[String, Dictionary]:
+	var file_lines:= read_song_file(song_name)
+	var song_parsed:Dictionary[String, Dictionary] = {}
 	for line in file_lines:
 		var line_data = line.split(";")
 		var spawn = line_data[0]
@@ -38,7 +38,7 @@ func parse_song(song_name:String, left:Array) -> Dictionary[String, Dictionary]:
 	return song_parsed
 
 
-func read_song_file(song_name:String) -> Array[String]:
+func read_song_file(song_name:String) -> PackedStringArray:
 	var file_path:String = "res://audio/song/%s.txt" % song_name
 	var file_content:String = FileAccess.get_file_as_string(file_path)
 	if file_content == "": 

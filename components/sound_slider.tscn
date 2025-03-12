@@ -1,9 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cejihvefiegin"]
+[gd_scene load_steps=2 format=3 uid="uid://cejihvefiegin"]
 
-[ext_resource type="Texture2D" uid="uid://bjy828m4wnslc" path="res://art/musicOn.png" id="1_523ob"]
-[ext_resource type="Script" path="res://components/sound_slider.gd" id="1_mu02w"]
-[ext_resource type="Theme" uid="uid://35g5mhtg4tua" path="res://styles/button_light.tres" id="2_816kd"]
-[ext_resource type="LabelSettings" uid="uid://da6vvelexlrsh" path="res://styles/label_2.tres" id="3_8f3i5"]
+[ext_resource type="Script" uid="uid://ffj4m3yo5sqs" path="res://components/sound_slider.gd" id="1_mu02w"]
 
 [node name="SoundSlider" type="HBoxContainer"]
 anchors_preset = 8
@@ -22,7 +19,6 @@ script = ExtResource("1_mu02w")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("1_523ob")
 expand_mode = 2
 stretch_mode = 4
 
@@ -34,7 +30,6 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("2_816kd")
 max_value = 1.0
 step = 0.01
 value = 0.5
@@ -54,7 +49,6 @@ custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 text = "50
 "
-label_settings = ExtResource("3_8f3i5")
 horizontal_alignment = 1
 
 [connection signal="drag_ended" from="VBoxContainer/MusicSlider" to="." method="_on_music_slider_drag_ended"]

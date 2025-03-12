@@ -1,23 +1,54 @@
 extends Node2D
 
 @onready var music_note_scene:PackedScene = preload("res://music_note.tscn")
-
+var song_array = []
+var time=0
+var spawned_notes = []
 func _ready() -> void:
-	spawn_left()
+	
+	var parser = SonParser.new()
+	var song= parser.parse_song('salsa')
+	for i in song.keys():
+		var side:Constants.SPAWN
+		if i == 'l':
+			side = Constants.SPAWN.LEFT
+		elif i  == 'r':
+			side = Constants.SPAWN.RIGHT
+		for t in song[i].keys():
+			song_array.append({
+				"side": side,
+				"time":t,
+				"input":song[i][t].input,
+				"type":song[i][t].type, 
+			})
 
 func _process(delta: float) -> void:
+	
 	if Input.is_action_just_pressed("LeftKey"):
 		check_notes($SpawnerLeft)
 	if Input.is_action_just_pressed("RightKey"):
 		check_notes($SpawnerRight)
+	time +=delta
+	var rounded_time = Utils.round_to_dec(time, 3)
+	if rounded_time == song_array[0].time:
+		var note = song_array[0]
+		if note.side == Constants.SPAWN.LEFT:
+			spawn_left(note)
+			spawned_notes.append(note)
+			song_array.remove_at(0)
+			
+		elif note.side == Constants.SPAWN.RIGHT:
+			spawn_right(note)
+			spawned_notes.append(note)
+			song_array.remove_at(0)
 
 
-func spawn_right():
+func spawn_right(note):
 	var music_note = music_note_scene.instantiate()
 	music_note.center = $"../Center/Marker2D"
 	$SpawnerRight.add_child(music_note)
 	
-func spawn_left():
+func spawn_left(note):
 	var music_note = music_note_scene.instantiate()
 	music_note.center = $"../Center/Marker2D"
 	$SpawnerLeft.add_child(music_note)

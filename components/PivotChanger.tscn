@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1bxqjm1hlg6a"]
+
+[ext_resource type="Script" uid="uid://bhsslmfn2t37g" path="res://components/PivotChanger.gd" id="1_q60f3"]
+
+[node name="PivotChanger" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_q60f3")

@@ -1,0 +1,160 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1l6uqhn4bxu5"]
+
+[ext_resource type="Texture2D" uid="uid://q2uecxmd8cb3" path="res://icon.svg" id="2_glbon"]
+[ext_resource type="PackedScene" uid="uid://bt5yvtupjskyu" path="res://components/UIButton.tscn" id="2_nlkkf"]
+[ext_resource type="Script" uid="uid://ckb3jel7owg8g" path="res://components/LabelVersion.gd" id="3_qe12f"]
+[ext_resource type="Script" path="res://options.gd" id="4_8qtwp"]
+[ext_resource type="PackedScene" uid="uid://cejihvefiegin" path="res://components/sound_slider.tscn" id="5_dy7ct"]
+
+[node name="MainMenu" type="Control"]
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayButton" parent="." instance=ExtResource("2_nlkkf")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = 37.0
+offset_right = 34.0
+offset_bottom = 101.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_glbon")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ConfigButton" parent="." instance=ExtResource("2_nlkkf")]
+layout_mode = 0
+offset_left = 542.0
+offset_top = 437.0
+offset_right = 606.0
+offset_bottom = 501.0
+texture_normal = ExtResource("2_glbon")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="LabelVersion" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -40.0
+offset_right = -19.0
+offset_bottom = -17.0
+grow_horizontal = 0
+grow_vertical = 0
+horizontal_alignment = 2
+script = ExtResource("3_qe12f")
+
+[node name="AGame" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -561.0
+offset_top = 220.0
+offset_right = -24.0
+offset_bottom = 307.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "A game by: Ildesir, Morphery & Psuzume
+With love for the 1BitJam#5 "
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.0
+offset_top = -224.0
+offset_right = 244.0
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(243, 196)
+script = ExtResource("4_8qtwp")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 22
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 36
+
+[node name="MasterContainer" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_dy7ct")]
+layout_mode = 2
+
+[node name="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/MasterContainer" index="0"]
+texture = null
+
+[node name="MusicSlider" parent="PanelContainer/MarginContainer/VBoxContainer/MasterContainer/VBoxContainer" index="0"]
+theme = null
+
+[node name="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MasterContainer" index="2"]
+label_settings = null
+
+[node name="MusicContainer" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_dy7ct")]
+layout_mode = 2
+
+[node name="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/MusicContainer" index="0"]
+texture = null
+
+[node name="MusicSlider" parent="PanelContainer/MarginContainer/VBoxContainer/MusicContainer/VBoxContainer" index="0"]
+theme = null
+
+[node name="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MusicContainer" index="2"]
+label_settings = null
+
+[node name="SoundContainer" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_dy7ct")]
+layout_mode = 2
+
+[node name="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/SoundContainer" index="0"]
+texture = null
+
+[node name="MusicSlider" parent="PanelContainer/MarginContainer/VBoxContainer/SoundContainer/VBoxContainer" index="0"]
+theme = null
+
+[node name="Label" parent="PanelContainer/MarginContainer/VBoxContainer/SoundContainer" index="2"]
+label_settings = null
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="UiButton" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer" instance=ExtResource("2_nlkkf")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ConfigButton" to="PanelContainer" method="show"]
+[connection signal="visibility_changed" from="PanelContainer" to="PanelContainer" method="_on_visibility_changed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/UiButton" to="." method="_on_ui_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/UiButton" to="PanelContainer" method="hide"]
+
+[editable path="PanelContainer/MarginContainer/VBoxContainer/MasterContainer"]
+[editable path="PanelContainer/MarginContainer/VBoxContainer/MusicContainer"]
+[editable path="PanelContainer/MarginContainer/VBoxContainer/SoundContainer"]
+[editable path="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/UiButton"]

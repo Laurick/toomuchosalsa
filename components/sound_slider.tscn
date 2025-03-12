@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://cejihvefiegin"]
+
+[ext_resource type="Texture2D" uid="uid://bjy828m4wnslc" path="res://art/musicOn.png" id="1_523ob"]
+[ext_resource type="Script" path="res://components/sound_slider.gd" id="1_mu02w"]
+[ext_resource type="Theme" uid="uid://35g5mhtg4tua" path="res://styles/button_light.tres" id="2_816kd"]
+[ext_resource type="LabelSettings" uid="uid://da6vvelexlrsh" path="res://styles/label_2.tres" id="3_8f3i5"]
+
+[node name="SoundSlider" type="HBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.5
+offset_top = 53.5
+offset_right = 203.5
+offset_bottom = 103.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_mu02w")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_523ob")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_816kd")
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+color = Color(0.764706, 0.92549, 0.996078, 1)
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "50
+"
+label_settings = ExtResource("3_8f3i5")
+horizontal_alignment = 1
+
+[connection signal="drag_ended" from="VBoxContainer/MusicSlider" to="." method="_on_music_slider_drag_ended"]
+[connection signal="drag_started" from="VBoxContainer/MusicSlider" to="." method="_on_music_slider_drag_started"]
+[connection signal="value_changed" from="VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]

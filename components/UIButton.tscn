@@ -19,3 +19,5 @@ grow_vertical = 2
 
 [node name="BahivourOnHover" type="Node" parent="."]
 script = ExtResource("2_bjqgn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

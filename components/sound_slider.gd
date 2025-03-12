@@ -16,9 +16,9 @@ func _on_music_slider_value_changed(value: float) -> void:
 
 func _on_music_slider_drag_ended(is_value_changed: bool) -> void:
 	if is_value_changed:
-		FmodServer.play_one_shot("event:/FX/UI/Hover_Drop")
+		AudioManager.play_one_shot("event:/FX/UI/Hover_Drop")
 		value_changed.emit(music_slider.value)
 
 
 func _on_music_slider_drag_started() -> void:
-	FmodServer.play_one_shot("event:/FX/UI/Hold")
+	AudioManager.play_one_shot("event:/FX/UI/Hold")

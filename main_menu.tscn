@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1l6uqhn4bxu5"]
+[gd_scene load_steps=7 format=3 uid="uid://d1l6uqhn4bxu5"]
 
+[ext_resource type="Script" uid="uid://dkrp53oye2q2n" path="res://main_menu.gd" id="1_nlkkf"]
 [ext_resource type="Texture2D" uid="uid://q2uecxmd8cb3" path="res://icon.svg" id="2_glbon"]
 [ext_resource type="PackedScene" uid="uid://bt5yvtupjskyu" path="res://components/UIButton.tscn" id="2_nlkkf"]
 [ext_resource type="Script" uid="uid://ckb3jel7owg8g" path="res://components/LabelVersion.gd" id="3_qe12f"]
-[ext_resource type="Script" path="res://options.gd" id="4_8qtwp"]
+[ext_resource type="Script" uid="uid://pq4k5q0rtju2" path="res://options.gd" id="4_8qtwp"]
 [ext_resource type="PackedScene" uid="uid://cejihvefiegin" path="res://components/sound_slider.tscn" id="5_dy7ct"]
 
 [node name="MainMenu" type="Control"]
@@ -14,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_nlkkf")
 
 [node name="PlayButton" parent="." instance=ExtResource("2_nlkkf")]
 layout_mode = 1
@@ -33,6 +35,7 @@ ignore_texture_size = true
 stretch_mode = 5
 
 [node name="ConfigButton" parent="." instance=ExtResource("2_nlkkf")]
+visible = false
 layout_mode = 0
 offset_left = 542.0
 offset_top = 437.0
@@ -71,8 +74,8 @@ offset_right = -24.0
 offset_bottom = 307.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "A game by: Ildesir, Morphery & Psuzume
-With love for the 1BitJam#5 "
+text = "
+"
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 visible = false
@@ -148,8 +151,8 @@ layout_mode = 2
 ignore_texture_size = true
 stretch_mode = 5
 
-[connection signal="pressed" from="PlayButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="ConfigButton" to="PanelContainer" method="show"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="ConfigButton" to="." method="_on_config_button_pressed"]
 [connection signal="visibility_changed" from="PanelContainer" to="PanelContainer" method="_on_visibility_changed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/UiButton" to="." method="_on_ui_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/UiButton" to="PanelContainer" method="hide"]

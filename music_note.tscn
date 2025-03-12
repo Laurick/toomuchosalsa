@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsdrce2kftlnj"]
+
+[ext_resource type="Script" uid="uid://gclfrhugcfv5" path="res://music_note.gd" id="1_m1p73"]
+
+[sub_resource type="Gradient" id="Gradient_shohy"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_m1p73"]
+gradient = SubResource("Gradient_shohy")
+
+[node name="MusicNote" type="Node2D"]
+script = ExtResource("1_m1p73")
+
+[node name="NoteImage" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture1D_m1p73")
+region_enabled = true
+region_rect = Rect2(0, 0, 50, 50)
+
+[node name="Marker" type="Marker2D" parent="."]

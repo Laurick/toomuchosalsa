@@ -1,3 +1,31 @@
-[gd_scene format=3 uid="uid://btc8w3jag5lxq"]
+[gd_scene load_steps=5 format=3 uid="uid://drjfl1ivsdkpw"]
+
+[ext_resource type="Script" uid="uid://wpd8r4nf8hnk" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://cfgynoh1tltiq" path="res://spawn_manager.gd" id="1_ig7tw"]
+
+[sub_resource type="Gradient" id="Gradient_7dm0k"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ig7tw"]
+gradient = SubResource("Gradient_7dm0k")
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_0xm2m")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Center" type="Sprite2D" parent="."]
+position = Vector2(0, 235)
+texture = SubResource("GradientTexture1D_ig7tw")
+region_enabled = true
+region_rect = Rect2(0, 0, 150, 100)
+
+[node name="Marker2D" type="Marker2D" parent="Center"]
+
+[node name="SpawnManager" type="Node2D" parent="."]
+script = ExtResource("1_ig7tw")
+
+[node name="SpawnerLeft" type="Marker2D" parent="SpawnManager"]
+position = Vector2(-600, 235)
+
+[node name="SpawnerRight" type="Marker2D" parent="SpawnManager"]
+position = Vector2(600, 235)

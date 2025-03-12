@@ -28,10 +28,10 @@ func check_notes(side_node):
 		var distance:float = abs(marker.global_position.distance_to($"../Center/Marker2D".global_position))
 		print(distance)
 		if  distance< 60:
-			$"..".balance_score += 1 
+			$"..".success()
 			note.queue_free()
 		else: 
-			$"..".balance_score -= 1 
-		#TODO ver tema puntuaciones
-		$"..".score = $"..".score + ($"..".balance_score)
+			$"..".fail()
+
+		
 			

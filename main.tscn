@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://drjfl1ivsdkpw"]
+[gd_scene load_steps=5 format=3 uid="uid://btc8w3jag5lxq"]
 
 [ext_resource type="Script" uid="uid://wpd8r4nf8hnk" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cfgynoh1tltiq" path="res://spawn_manager.gd" id="1_ig7tw"]

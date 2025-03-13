@@ -16,15 +16,15 @@ func parse_song(song_name:String) -> Dictionary[String, Dictionary]:
 		var time:float = float(line_data[1])
 		var type_input:Constants.INPUTS
 		match line_data[2]:
-			"left":
+			"LEFT":
 				type_input = Constants.INPUTS.LEFT
-			"right":
+			"RIGHT":
 				type_input = Constants.INPUTS.RIGHT
-			"up":
+			"UP":
 				type_input = Constants.INPUTS.UP
-			"down":
+			"DOWN":
 				type_input = Constants.INPUTS.DOWN
-			"space":
+			"SPACE":
 				type_input = Constants.INPUTS.SPACE
 		var type:Constants.TYPES
 		match line_data[3]:

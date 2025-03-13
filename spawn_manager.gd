@@ -4,8 +4,8 @@ extends Node2D
 var song_array:Array = []
 var time=0
 var spawned_notes = []
+
 func _ready() -> void:
-	
 	var parser = SonParser.new()
 	var song= parser.parse_song('salsa')
 	for i in song.keys():
@@ -15,6 +15,7 @@ func _ready() -> void:
 		elif i  == 'r':
 			side = Constants.SPAWN.RIGHT
 		for t in song[i].keys():
+			print(song[i][t].type)
 			song_array.append({
 				"side": side,
 				"time":float(t),
@@ -34,7 +35,7 @@ func _process(delta: float) -> void:
 		return
 	var rounded_time:float = float("%.3f" % (time))
 	var note_time:float = float("%.3f" % (song_array[0].time) )
-	print(str(rounded_time) + '-' + str(note_time))
+	#print(str(rounded_time) + '-' + str(note_time))
 	if abs(rounded_time - note_time) < 0.100:
 		var note = song_array[0]
 		if note.side == Constants.SPAWN.LEFT:
@@ -50,12 +51,14 @@ func _process(delta: float) -> void:
 
 func spawn_right(note):
 	var music_note = music_note_scene.instantiate()
+	music_note.setup(note.input)
 	music_note.center = $"../Center/Marker2D"
 	music_note.main = $".."
 	$SpawnerRight.add_child(music_note)
 	
 func spawn_left(note):
 	var music_note = music_note_scene.instantiate()
+	music_note.setup(note.input)
 	music_note.center = $"../Center/Marker2D"
 	music_note.main = $".."
 	$SpawnerLeft.add_child(music_note)

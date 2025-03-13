@@ -13,6 +13,6 @@ script = ExtResource("1_m1p73")
 [node name="NoteImage" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture1D_m1p73")
 region_enabled = true
-region_rect = Rect2(0, 0, 50, 50)
+region_rect = Rect2(0, 0, 64, 64)
 
 [node name="Marker" type="Marker2D" parent="."]

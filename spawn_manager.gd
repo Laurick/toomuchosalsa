@@ -1,13 +1,17 @@
-extends Node2D
+class_name SpawnManager extends Node2D
+
+signal note_success()
+signal note_failed()
 
 @onready var music_note_scene:PackedScene = preload("res://music_note.tscn")
+
 var song_array:Array = []
 var time=0
 var spawned_notes = []
 
-func _ready() -> void:
+func play_song(song_string:String) -> void:
 	var parser = SonParser.new()
-	var song= parser.parse_song('salsa')
+	var song= parser.parse_song(song_string)
 	for i in song.keys():
 		var side:Constants.SPAWN
 		if i == 'l':
@@ -22,7 +26,6 @@ func _ready() -> void:
 				"input":song[i][t].input,
 				"type":song[i][t].type, 
 			})
-
 	song_array.sort_custom(func(a,b ):return float(a.time)<float(b.time))
 func _process(delta: float) -> void:
 	
@@ -69,10 +72,10 @@ func check_notes(side_node):
 		var distance:float = abs(marker.global_position.distance_to($"../Center/Marker2D".global_position))
 		print(distance)
 		if  distance< 60:
-			$"..".success()
+			note_success.emit()
 			note.queue_free()
 		else: 
-			$"..".fail()
+			note_failed.emit()
 
 		
 			

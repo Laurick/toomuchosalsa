@@ -41,3 +41,8 @@ func play_sound(song_name:String):
 	var path = "res://audio/%s" % song_name
 	sounds_audio_stream_player.stream = load(path)
 	sounds_audio_stream_player.play()
+
+func play_music(song_name:String):
+	var path = "res://audio/song/%s.mp3" % song_name
+	music_audio_stream_player.stream = load(path)
+	music_audio_stream_player.play()

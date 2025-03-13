@@ -3,6 +3,7 @@ class_name SpawnManager extends Node2D
 signal note_success()
 signal note_failed()
 
+@onready var center: Marker2D = $"../Center/Marker2D"
 @onready var music_note_scene:PackedScene = preload("res://music_note.tscn")
 
 var song_array:Array = []
@@ -27,8 +28,8 @@ func play_song(song_string:String) -> void:
 				"type":song[i][t].type, 
 			})
 	song_array.sort_custom(func(a,b ):return float(a.time)<float(b.time))
+
 func _process(delta: float) -> void:
-	
 	if Input.is_action_just_pressed("LeftKey"):
 		check_notes($SpawnerLeft)
 	if Input.is_action_just_pressed("RightKey"):
@@ -55,27 +56,24 @@ func _process(delta: float) -> void:
 func spawn_right(note):
 	var music_note = music_note_scene.instantiate()
 	music_note.setup(note.input)
-	music_note.center = $"../Center/Marker2D"
-	music_note.main = $".."
+	music_note.center = center
+	music_note.note_failed.connect(func (x): note_failed.emit())
 	$SpawnerRight.add_child(music_note)
 	
 func spawn_left(note):
 	var music_note = music_note_scene.instantiate()
 	music_note.setup(note.input)
-	music_note.center = $"../Center/Marker2D"
-	music_note.main = $".."
+	music_note.center = center
+	music_note.note_failed.connect(func (x): note_failed.emit())
 	$SpawnerLeft.add_child(music_note)
-	
+
 func check_notes(side_node):
 	for note:Node2D in side_node.get_children():
 		var marker:Marker2D = note.get_child(1)
-		var distance:float = abs(marker.global_position.distance_to($"../Center/Marker2D".global_position))
+		var distance:float = abs(marker.global_position.distance_to(center.global_position))
 		print(distance)
 		if  distance< 60:
 			note_success.emit()
 			note.queue_free()
 		else: 
 			note_failed.emit()
-
-		
-			

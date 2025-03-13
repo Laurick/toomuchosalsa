@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="TooMuchoSalsa"
+config/version="v0.0.1"
 run/main_scene="uid://d1l6uqhn4bxu5"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"

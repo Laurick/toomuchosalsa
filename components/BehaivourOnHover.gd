@@ -1,10 +1,10 @@
 class_name BehaivourOnHover extends Node
 
-var target:TextureButton
+var target:Button
 
 func _ready() -> void:
 	target = get_parent()
-	if target is not TextureButton: return
+	if target is not Button: return
 	target.mouse_entered.connect(on_mouse_entered)
 	target.mouse_exited.connect(on_mouse_exited)
 	target.button_down.connect(on_mouse_pressed)

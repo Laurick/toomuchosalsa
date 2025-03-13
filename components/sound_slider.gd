@@ -16,9 +16,10 @@ func _on_music_slider_value_changed(value: float) -> void:
 
 func _on_music_slider_drag_ended(is_value_changed: bool) -> void:
 	if is_value_changed:
-		AudioManager.play_one_shot("")
+		#AudioManager.play_one_shot("")
 		value_changed.emit(music_slider.value)
 
 
 func _on_music_slider_drag_started() -> void:
-	AudioManager.play_one_shot("")
+	pass
+	#AudioManager.play_one_shot("")

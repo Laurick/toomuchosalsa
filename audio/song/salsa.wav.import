@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c47cruw2lsfrs"
-path="res://.godot/imported/salsa.wav-45af5f28591c992ad69683be49b3913f.sample"
+path="res://.godot/imported/salsa.wav-6ccb7e2eb709894e9b3dceebf32c2d28.sample"
 
 [deps]
 
-source_file="res://audio/salsa.wav"
-dest_files=["res://.godot/imported/salsa.wav-45af5f28591c992ad69683be49b3913f.sample"]
+source_file="res://audio/song/salsa.wav"
+dest_files=["res://.godot/imported/salsa.wav-6ccb7e2eb709894e9b3dceebf32c2d28.sample"]
 
 [params]
 

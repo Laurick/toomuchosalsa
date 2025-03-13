@@ -6,6 +6,7 @@ var balance_score = 0
 
 
 
+
 #TODO ver tema puntuaciones
 
 func fail():

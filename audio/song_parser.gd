@@ -10,6 +10,7 @@ func parse_song(song_name:String) -> Dictionary[String, Dictionary]:
 	var file_lines:= read_song_file(song_name)
 	var song_parsed:Dictionary[String, Dictionary] = {}
 	for line in file_lines:
+		if line == "": continue
 		var line_data = line.split(";")
 		var spawn = line_data[0]
 		var time:float = float(line_data[1])
@@ -34,6 +35,8 @@ func parse_song(song_name:String) -> Dictionary[String, Dictionary]:
 		var song_input:SongInput = SongInput.new()
 		song_input.input = type_input
 		song_input.type = type
+		if !song_parsed.has(spawn):
+			song_parsed[spawn] = {}
 		song_parsed[spawn][time] = song_input 
 	return song_parsed
 

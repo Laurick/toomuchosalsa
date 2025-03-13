@@ -109,38 +109,11 @@ theme_override_constants/separation = 36
 [node name="MasterContainer" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_dy7ct")]
 layout_mode = 2
 
-[node name="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/MasterContainer" index="0"]
-texture = null
-
-[node name="MusicSlider" parent="PanelContainer/MarginContainer/VBoxContainer/MasterContainer/VBoxContainer" index="0"]
-theme = null
-
-[node name="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MasterContainer" index="2"]
-label_settings = null
-
 [node name="MusicContainer" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_dy7ct")]
 layout_mode = 2
 
-[node name="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/MusicContainer" index="0"]
-texture = null
-
-[node name="MusicSlider" parent="PanelContainer/MarginContainer/VBoxContainer/MusicContainer/VBoxContainer" index="0"]
-theme = null
-
-[node name="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MusicContainer" index="2"]
-label_settings = null
-
 [node name="SoundContainer" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_dy7ct")]
 layout_mode = 2
-
-[node name="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/SoundContainer" index="0"]
-texture = null
-
-[node name="MusicSlider" parent="PanelContainer/MarginContainer/VBoxContainer/SoundContainer/VBoxContainer" index="0"]
-theme = null
-
-[node name="Label" parent="PanelContainer/MarginContainer/VBoxContainer/SoundContainer" index="2"]
-label_settings = null
 
 [node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

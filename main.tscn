@@ -87,3 +87,5 @@ position = Vector2(-600, 235)
 
 [node name="SpawnerRight" type="Marker2D" parent="Game/SpawnManager"]
 position = Vector2(600, 235)
+
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

@@ -1,6 +1,6 @@
 class_name SpawnManager extends Node2D
 
-signal note_success()
+signal note_success(perfect:bool)
 signal note_failed()
 
 @onready var center: Marker2D = $"../Center/Marker2D"
@@ -11,6 +11,7 @@ var time=0
 var spawned_notes = []
 
 func play_song(song_string:String) -> void:
+	time = 0
 	var parser = SonParser.new()
 	var song= parser.parse_song(song_string)
 	for i in song.keys():
@@ -68,12 +69,18 @@ func spawn_left(note):
 	$SpawnerLeft.add_child(music_note)
 
 func check_notes(side_node):
-	for note:Node2D in side_node.get_children():
-		var marker:Marker2D = note.get_child(1)
-		var distance:float = abs(marker.global_position.distance_to(center.global_position))
-		print(distance)
-		if  distance< 60:
-			note_success.emit()
-			note.queue_free()
-		else: 
-			note_failed.emit()
+	var note:Node2D = side_node.get_child(0)
+	var marker:Marker2D = note.get_child(1)
+	var distance:float = abs(marker.global_position.distance_to(center.global_position))
+	#print(distance)
+	if distance < 60:
+		print('perfect')
+		note_success.emit(true)
+		note.queue_free()
+	elif  distance< 120:
+		print('OK')
+		note_success.emit(false)
+		note.queue_free()
+	else: 
+		print('fail')
+		note_failed.emit()

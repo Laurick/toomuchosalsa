@@ -3,6 +3,7 @@ class_name SpawnManager extends Node2D
 signal note_success(perfect:bool)
 signal note_failed()
 
+@onready var banner_scene:PackedScene = preload("res://result_banner.tscn")
 @onready var center: Marker2D = $"../Center/Marker2D"
 @onready var music_note_scene:PackedScene = preload("res://music_note.tscn")
 
@@ -70,17 +71,31 @@ func spawn_left(note):
 
 func check_notes(side_node):
 	var note:Node2D = side_node.get_child(0)
+	if !note:
+		return
 	var marker:Marker2D = note.get_child(1)
 	var distance:float = abs(marker.global_position.distance_to(center.global_position))
+
+	var result_color:Color
 	#print(distance)
 	if distance < 60:
 		print('perfect')
+		result_color = Color.GOLD
 		note_success.emit(true)
 		note.queue_free()
 	elif  distance< 120:
 		print('OK')
+		result_color = Color.GREEN
 		note_success.emit(false)
 		note.queue_free()
 	else: 
 		print('fail')
+		result_color = Color.RED
 		note_failed.emit()
+	var banner = banner_scene.instantiate()
+	banner.global_position = center.global_position
+	var g = GradientTexture1D.new()
+	g.gradient = Gradient.new()
+	g.gradient.set_color(0,result_color)
+	banner.set_image(g)
+	add_child(banner)

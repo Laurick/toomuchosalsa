@@ -5,6 +5,8 @@ var balance_score = 0
 
 @onready var spawn_manager: SpawnManager = %SpawnManager
 @onready var canvas_layer: UI = $CanvasLayer
+
+
 var song_idx = 0
 var song_list = [
 	"salsa.mp3","salsa2.wav"
@@ -16,8 +18,8 @@ func _ready() -> void:
 	spawn_manager.note_success.connect(success)
 	AudioManager.connect_finished(_on_song_finished)
 
-func init_song():	
-	
+
+func init_song():
 	if song_idx > song_list.size()-1:
 		song_idx = 0
 	AudioManager.play_music(song_list[song_idx])
@@ -43,3 +45,9 @@ func _on_song_finished():
 
 func _on_tree_exited() -> void:
 	AudioManager.disconnect_finished(_on_song_finished)
+
+
+func _on_exit_button_pressed() -> void:
+	AudioManager.play_music("")
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://main_menu.tscn")

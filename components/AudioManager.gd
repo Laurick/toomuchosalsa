@@ -43,9 +43,12 @@ func play_sound(song_name:String):
 	sounds_audio_stream_player.play()
 
 func play_music(song_name:String):
-	var path = "res://audio/song/%s" % song_name
-	music_audio_stream_player.stream = load(path)
-	music_audio_stream_player.play()
+	if song_name == "":
+		music_audio_stream_player.stop()
+	else:
+		var path = "res://audio/song/%s" % song_name
+		music_audio_stream_player.stream = load(path)
+		music_audio_stream_player.play()
 	
 func connect_finished(callable:Callable):
 	music_audio_stream_player.finished.connect(callable)

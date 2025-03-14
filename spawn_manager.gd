@@ -59,14 +59,14 @@ func spawn_right(note):
 	var music_note = music_note_scene.instantiate()
 	music_note.setup(note.input)
 	music_note.center = center
-	music_note.note_failed.connect(func (x): note_failed.emit())
+	music_note.note_failed.connect(func (): note_failed.emit())
 	$SpawnerRight.add_child(music_note)
 	
 func spawn_left(note):
 	var music_note = music_note_scene.instantiate()
 	music_note.setup(note.input)
 	music_note.center = center
-	music_note.note_failed.connect(func (x): note_failed.emit())
+	music_note.note_failed.connect(func (): note_failed.emit())
 	$SpawnerLeft.add_child(music_note)
 
 func check_notes(side_node):

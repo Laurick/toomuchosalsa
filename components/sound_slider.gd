@@ -7,11 +7,11 @@ signal value_changed(new_volume)
 
 
 func setup(volume):
-	label.text = str(volume*100)
+	label.text = str(int(volume*100))
 	music_slider.value = volume
 
 func _on_music_slider_value_changed(value: float) -> void:
-	label.text = str(value*100)
+	label.text = str(int(value*100))
 
 
 func _on_music_slider_drag_ended(is_value_changed: bool) -> void:

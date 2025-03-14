@@ -198,6 +198,9 @@ metadata/_custom_type_script = "uid://bpfnmxk3v7fhg"
 [connection signal="pressed" from="VBoxContainer/ConfigButton" to="." method="_on_config_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
 [connection signal="visibility_changed" from="ConfigContainer" to="ConfigContainer" method="_on_visibility_changed"]
+[connection signal="value_changed" from="ConfigContainer/MarginContainer/VBoxContainer/MasterContainer" to="ConfigContainer" method="_on_master_container_value_changed"]
+[connection signal="value_changed" from="ConfigContainer/MarginContainer/VBoxContainer/MusicContainer" to="ConfigContainer" method="_on_music_container_value_changed"]
+[connection signal="value_changed" from="ConfigContainer/MarginContainer/VBoxContainer/SoundContainer" to="ConfigContainer" method="_on_sound_container_value_changed"]
 [connection signal="pressed" from="ConfigContainer/MarginContainer/VBoxContainer/CenterContainer/UiButton" to="ConfigContainer" method="hide"]
 [connection signal="pressed" from="ControlsContainer/MarginContainer/VBoxContainer/CenterContainer2/UiButton" to="ControlsContainer" method="hide"]
 

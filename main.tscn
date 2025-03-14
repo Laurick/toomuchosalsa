@@ -132,6 +132,16 @@ text = "SALIR"
 script = ExtResource("4_kek77")
 metadata/_custom_type_script = "uid://bpfnmxk3v7fhg"
 
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+
 [node name="Game" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="Game"]

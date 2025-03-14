@@ -8,8 +8,8 @@ signal note_failed()
 @onready var music_note_scene:PackedScene = preload("res://music_note.tscn")
 
 var song_array:Array = []
-var time=0
 var spawned_notes = []
+var time = 0
 
 func play_song(song_string:String) -> void:
 	time = 0

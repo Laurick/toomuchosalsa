@@ -3,14 +3,15 @@ class_name GameManager extends Node
 var score = 0
 var balance_score = 0
 var loop_dance_score = 0
+var song_playing = false
 
 @onready var spawn_manager: SpawnManager = %SpawnManager
 @onready var canvas_layer: UI = $CanvasLayer
 
 var song_idx = 0
 var song_list = [
-	{"song": "salsa.mp3", "inputs": "res://audio/song/salsa.txt", "text":"res://audio/song/song.txt"},
-	{"song": "salsa2.wav", "inputs": "res://audio/song/salsa.txt", "text":"res://audio/song/song.txt"}
+	{"song": "salsa.mp3", "inputs": "res://audio/song/salsa.txt", "text":"res://audio/song/song.txt", "len":19.20},
+	{"song": "salsa_old.mp3", "inputs": "res://audio/song/salsa.txt", "text":"res://audio/song/song.txt","len":19.20}
 ]
 
 var srt_parser:SRTParser = SRTParser.new()
@@ -18,26 +19,37 @@ var subtitles:Array[SubtitleEntry] = []
 var srt_time:float = 0
 
 func _ready() -> void:
+
 	init_song(false)
+	await get_tree().create_timer(1.2).timeout
+	init_music_track(false)
 	spawn_manager.note_failed.connect(fail)
 	spawn_manager.note_success.connect(success)
 	AudioManager.connect_finished(_on_song_finished)
 
 
 func init_song(looped:bool = true):
-	if looped && loop_dance_score == 0:
+	
+	if looped && loop_dance_score == 0 :
 		song_idx +=1
 	if song_idx > song_list.size()-1:
+		await get_tree().create_timer(1.2).timeout
 		win_game()
+		return
 	loop_dance_score = 0
 	var song = song_list[song_idx]
-	AudioManager.play_music(song["song"])
+	
 	spawn_manager.play_song(song["inputs"])
 	subtitles = srt_parser.parse_srt_file(song["text"])
 	srt_time = 0
 
 #TODO ver tema puntuaciones
-
+func init_music_track(looped:bool = true):
+	$Game/AnimatedSprite2D.play("default")
+	var song = song_list[song_idx]
+	AudioManager.play_music(song["song"])
+	song_playing = true
+	
 func fail():
 	balance_score -= 1
 	loop_dance_score -= 1
@@ -52,6 +64,11 @@ func success(perfect:bool):
 
 func _process(delta: float) -> void:
 	srt_time += delta
+	
+	if song_playing:
+		if int(AudioManager.get_track_position()) > song_list[song_idx].len-1.2:
+			song_playing = false
+			init_song()
 	var subtitle:SubtitleEntry = srt_parser.get_subtitle_at_time(subtitles, srt_time)
 	if subtitle:
 		canvas_layer.add_subtitle(subtitle, srt_time)
@@ -59,7 +76,7 @@ func _process(delta: float) -> void:
 		canvas_layer.add_subtitle()
 
 func _on_song_finished():
-	init_song()
+	init_music_track()
 
 
 func _on_tree_exited() -> void:

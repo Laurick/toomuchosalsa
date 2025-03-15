@@ -3,9 +3,9 @@ extends Node
 @onready var sounds_audio_stream_player: AudioStreamPlayer = $SoundsAudioStreamPlayer
 @onready var music_audio_stream_player: AudioStreamPlayer = $MusicAudioStreamPlayer
 
-var volume_master:float = 0.0
-var volume_sound:float = 0.0
-var volume_music:float = 0.0
+var volume_master:float = 0.5
+var volume_sound:float = 0.5
+var volume_music:float = 0.5
 var master_index:int
 var music_index:int
 var sound_index:int
@@ -47,6 +47,8 @@ func play_music(song_name:String):
 		music_audio_stream_player.stream = load(path)
 		music_audio_stream_player.play()
 	
+func get_track_position()-> float:
+	return music_audio_stream_player.get_playback_position()
 func connect_finished(callable:Callable):
 	music_audio_stream_player.finished.connect(callable)
 	

@@ -1,63 +1,37 @@
-[gd_scene load_steps=22 format=3 uid="uid://btc8w3jag5lxq"]
+[gd_scene load_steps=16 format=3 uid="uid://btc8w3jag5lxq"]
 
 [ext_resource type="Script" uid="uid://wpd8r4nf8hnk" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cfgynoh1tltiq" path="res://spawn_manager.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://b803w4ch360j8" path="res://ui.gd" id="2_272bh"]
 [ext_resource type="PackedScene" uid="uid://dm86n0fcjee4r" path="res://components/UITextureButton.tscn" id="3_4c57u"]
 [ext_resource type="Texture2D" uid="uid://1ylw41eu8sr3" path="res://images/pause.png" id="3_5vw27"]
+[ext_resource type="Texture2D" uid="uid://v50gryqwdmrc" path="res://images/dance1.png" id="3_7mycd"]
+[ext_resource type="Texture2D" uid="uid://tptru1sni5fx" path="res://images/dance2.png" id="4_272bh"]
 [ext_resource type="Script" path="res://components/BoingComponent.gd" id="4_kek77"]
+[ext_resource type="Texture2D" uid="uid://c8hnsphscbyjw" path="res://images/dance3.png" id="5_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bt5yvtupjskyu" path="res://components/UIButton.tscn" id="5_efxa6"]
 [ext_resource type="StyleBox" uid="uid://lsn48mo682dy" path="res://styles/button_flat.tres" id="5_w48qg"]
+[ext_resource type="Texture2D" uid="uid://cs2ewd3qa0qku" path="res://images/dance4.png" id="6_kek77"]
 [ext_resource type="Theme" uid="uid://buorrie1vc8nq" path="res://styles/toomuchazucar_theme.tres" id="6_vivmo"]
-[ext_resource type="Texture2D" uid="uid://bjqpy8aogdxad" path="res://images/escenario/TO_MUCH_AZUCAR_BG_1.png" id="9_82xsv"]
-[ext_resource type="Texture2D" uid="uid://ck5ow6acqax86" path="res://images/escenario/TO_MUCH_AZUCAR_LIGHT_1.png" id="10_getpj"]
 [ext_resource type="Texture2D" uid="uid://dwjf7mok2chq" path="res://images/indicator.png" id="11_dg77c"]
-[ext_resource type="SpriteFrames" uid="uid://b246qkxiwi7mu" path="res://images/other_dancers_animation.tres" id="13_074og"]
-[ext_resource type="Texture2D" uid="uid://bfmske6niteei" path="res://images/escenario/TO_MUCH_AZUCAR_0011_DANCE_BASE_1.png" id="15_074og"]
-[ext_resource type="Texture2D" uid="uid://crh5if0q0xk7i" path="res://images/escenario/TO_MUCH_AZUCAR_0010_DANCE_BASE_2-copia.png" id="15_ryguw"]
-[ext_resource type="Texture2D" uid="uid://daty3ny5cgtdt" path="res://images/escenario/TO_MUCH_AZUCAR_STAGE_1.png" id="15_yaehf"]
-[ext_resource type="Texture2D" uid="uid://bkcedqxtsyl06" path="res://images/escenario/TO_MUCH_AZUCAR_PEOPLE_1.png" id="17_1u8w0"]
-[ext_resource type="Texture2D" uid="uid://biaqoqghwfkri" path="res://images/escenario/TO_MUCH_AZUCAR_PEOPLE_2.png" id="18_0odxb"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_lswn8"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("17_1u8w0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_0odxb")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cegan"]
-load_path = "res://.godot/imported/TO_MUCH_AZUCAR_0011_DANCE_BASE_1-copia.png-3276cdadc34b1c225e64e8555742efe7.ctex"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4c57u"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("15_ryguw")
+"texture": ExtResource("3_7mycd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_074og")
+"texture": ExtResource("4_272bh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5vw27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kek77")
 }],
 "loop": true,
 "name": &"default",
-"speed": 1.67
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("15_ryguw")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_cegan")
-}],
-"loop": true,
-"name": &"new_animation",
 "speed": 5.0
 }]
 
@@ -188,46 +162,10 @@ vertical_alignment = 1
 [node name="Game" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="Game"]
-position = Vector2(0, -7.62939e-06)
-scale = Vector2(1, 1)
-
-[node name="BackgroundSprite" type="Sprite2D" parent="Game"]
-position = Vector2(-2.74181e-05, -105.435)
-scale = Vector2(0.538104, 0.357448)
-texture = ExtResource("9_82xsv")
-
-[node name="LigthSprite" type="Sprite2D" parent="Game"]
-position = Vector2(-3.8147e-06, -76)
-scale = Vector2(0.406069, 0.406069)
-texture = ExtResource("10_getpj")
-
-[node name="Public" type="AnimatedSprite2D" parent="Game"]
-position = Vector2(-2.09808e-05, 185)
-scale = Vector2(0.538104, 0.53)
-sprite_frames = SubResource("SpriteFrames_lswn8")
-
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Game"]
-position = Vector2(-427, 66.1591)
-scale = Vector2(0.237805, 0.237805)
-sprite_frames = ExtResource("13_074og")
-autoplay = "default"
-
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Game"]
-position = Vector2(400, 66.1591)
-scale = Vector2(0.237805, 0.237805)
-sprite_frames = ExtResource("13_074og")
-autoplay = "default"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Game"]
-position = Vector2(-3.8147e-06, -25)
-scale = Vector2(0.416159, 0.416159)
 sprite_frames = SubResource("SpriteFrames_4c57u")
 autoplay = "default"
-
-[node name="StageBackground" type="Sprite2D" parent="Game"]
-position = Vector2(4.76837e-07, 250)
-scale = Vector2(0.537639, 0.588418)
-texture = ExtResource("15_yaehf")
 
 [node name="Center" type="Sprite2D" parent="Game"]
 position = Vector2(0, 235)

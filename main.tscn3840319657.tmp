@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=3 uid="uid://btc8w3jag5lxq"]
+
+[ext_resource type="Script" uid="uid://wpd8r4nf8hnk" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://cfgynoh1tltiq" path="res://spawn_manager.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://b803w4ch360j8" path="res://ui.gd" id="2_272bh"]
+[ext_resource type="Texture2D" uid="uid://v50gryqwdmrc" path="res://images/dance1.png" id="3_7mycd"]
+[ext_resource type="Texture2D" uid="uid://tptru1sni5fx" path="res://images/dance2.png" id="4_272bh"]
+[ext_resource type="Texture2D" uid="uid://c8hnsphscbyjw" path="res://images/dance3.png" id="5_5vw27"]
+[ext_resource type="Texture2D" uid="uid://cs2ewd3qa0qku" path="res://images/dance4.png" id="6_kek77"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4c57u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7mycd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_272bh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5vw27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kek77")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_7dm0k"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ig7tw"]
+gradient = SubResource("Gradient_7dm0k")
+
+[node name="Main" type="Node"]
+script = ExtResource("1_0xm2m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("2_272bh")
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.916667
+anchor_right = 0.916667
+offset_left = -20.0
+offset_top = 40.0
+offset_right = 20.0
+offset_bottom = 63.0
+grow_horizontal = 2
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Game" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="Game"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Game"]
+sprite_frames = SubResource("SpriteFrames_4c57u")
+autoplay = "default"
+
+[node name="Center" type="Sprite2D" parent="Game"]
+position = Vector2(0, 235)
+texture = SubResource("GradientTexture1D_ig7tw")
+region_enabled = true
+region_rect = Rect2(0, 0, 150, 100)
+
+[node name="Marker2D" type="Marker2D" parent="Game/Center"]
+
+[node name="SpawnManager" type="Node2D" parent="Game"]
+unique_name_in_owner = true
+script = ExtResource("1_ig7tw")
+
+[node name="SpawnerLeft" type="Marker2D" parent="Game/SpawnManager"]
+position = Vector2(-600, 235)
+
+[node name="SpawnerRight" type="Marker2D" parent="Game/SpawnManager"]
+position = Vector2(600, 235)
+
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

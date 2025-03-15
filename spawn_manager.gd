@@ -11,6 +11,7 @@ signal note_failed()
 @onready var music_note_scene:PackedScene = preload("res://music_note.tscn")
 
 var song_array:Array = []
+
 var spawned_notes = []
 var time = 0
 
@@ -34,6 +35,7 @@ func play_song(song_string:String) -> void:
 	song_array.sort_custom(func(a,b ):return float(a.time)<float(b.time))
 
 func _process(delta: float) -> void:
+	
 	if Input.is_action_just_pressed("LeftKey"):
 		check_notes($SpawnerLeft)
 	if Input.is_action_just_pressed("RightKey"):
@@ -55,6 +57,7 @@ func _process(delta: float) -> void:
 			spawn_right(note)
 			spawned_notes.append(note)
 			song_array.pop_at(0)
+
 
 
 func spawn_right(note):
@@ -82,9 +85,11 @@ func check_notes(side_node):
 	#print(distance)
 	if distance < 25:
 		banner.set_perfect()
+		note.succeded = true
 		note_success.emit(true)
 		note.queue_free()
-	elif  distance < 50:
+	elif  distance < 70:
+		note.succeded = true
 		banner.set_good()
 		note_success.emit(false)
 		note.queue_free()

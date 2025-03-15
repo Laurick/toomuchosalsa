@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cejihvefiegin" path="res://components/sound_slider.tscn" id="5_dy7ct"]
 [ext_resource type="Texture2D" uid="uid://bkhvfjpghpxe3" path="res://images/star.png" id="6_dy7ct"]
 [ext_resource type="StyleBox" uid="uid://lsn48mo682dy" path="res://styles/button_flat.tres" id="6_j5v2v"]
-[ext_resource type="Script" uid="uid://bpfnmxk3v7fhg" path="res://components/BoingComponent.gd" id="6_nlkkf"]
+[ext_resource type="Script" path="res://components/BoingComponent.gd" id="6_nlkkf"]
 [ext_resource type="Texture2D" uid="uid://s1drnpjd7q5y" path="res://images/musicOn.png" id="7_0o4t1"]
 [ext_resource type="Texture2D" uid="uid://ca028dc6kwjdu" path="res://images/audioOn.png" id="8_0k4wn"]
 
@@ -152,7 +152,6 @@ text = "VOLVER"
 
 [node name="BoingComponent" type="Node" parent="ConfigContainer"]
 script = ExtResource("6_nlkkf")
-metadata/_custom_type_script = "uid://bpfnmxk3v7fhg"
 
 [node name="ControlsContainer" type="PanelContainer" parent="."]
 visible = false
@@ -211,7 +210,6 @@ text = "VOLVER"
 
 [node name="BoingComponent" type="Node" parent="ControlsContainer"]
 script = ExtResource("6_nlkkf")
-metadata/_custom_type_script = "uid://bpfnmxk3v7fhg"
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ConfigButton" to="." method="_on_config_button_pressed"]

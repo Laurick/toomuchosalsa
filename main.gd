@@ -14,7 +14,7 @@ var song_list = [
 ]
 
 var srt_parser:SRTParser = SRTParser.new()
-var subtitles:Array = []
+var subtitles:Array[SubtitleEntry] = []
 var srt_time:float = 0
 
 func _ready() -> void:
@@ -52,11 +52,11 @@ func success(perfect:bool):
 
 func _process(delta: float) -> void:
 	srt_time += delta
-	var subtitle: = srt_parser.get_subtitle_at_time(subtitles, srt_time)
+	var subtitle:SubtitleEntry = srt_parser.get_subtitle_at_time(subtitles, srt_time)
 	if subtitle:
-		canvas_layer.add_subtitle(subtitle.text)
+		canvas_layer.add_subtitle(subtitle, srt_time)
 	else:
-		canvas_layer.add_subtitle("")
+		canvas_layer.add_subtitle()
 
 func _on_song_finished():
 	init_song()

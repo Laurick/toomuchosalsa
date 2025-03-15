@@ -10,9 +10,6 @@ var master_index:int
 var music_index:int
 var sound_index:int
 
-const SOUND_OFF = -60
-const SOUND_ON = 0
-
 func _ready() -> void:
 	change_volume_master(volume_master)
 	change_volume_music(volume_music)

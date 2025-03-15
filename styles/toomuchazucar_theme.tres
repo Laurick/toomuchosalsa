@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://buorrie1vc8nq"]
+
+[ext_resource type="StyleBox" uid="uid://lsn48mo682dy" path="res://styles/button_flat.tres" id="1_8j3m6"]
+
+[resource]
+Button/colors/font_color = Color(1, 0.713726, 0.92549, 1)
+Button/colors/font_focus_color = Color(1, 0.713726, 0.92549, 1)
+Button/colors/font_hover_color = Color(1, 0.713726, 0.92549, 1)
+Button/constants/h_separation = 22
+Button/font_sizes/font_size = 28
+Button/styles/focus = ExtResource("1_8j3m6")
+Button/styles/hover = ExtResource("1_8j3m6")
+Button/styles/normal = ExtResource("1_8j3m6")
+Button/styles/pressed = ExtResource("1_8j3m6")

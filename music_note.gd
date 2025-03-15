@@ -7,6 +7,7 @@ signal note_failed()
 @export var center:Marker2D
 
 var _arrow:Constants.INPUTS
+var _color:Color
 
 func _ready() -> void:
 	match (_arrow):
@@ -20,9 +21,11 @@ func _ready() -> void:
 			note_image.texture = load("res://images/arrow_down.png")
 		Constants.INPUTS.SPACE:
 			note_image.texture = load("res://images/button.png")
+	note_image.modulate = _color
 
-func setup(arrow):
+func setup(arrow:Constants.INPUTS, color:Color):
 	_arrow = arrow
+	_color = color
 
 func _process(delta: float) -> void:
 	global_position = global_position + (global_position.direction_to(center.global_position)*2)

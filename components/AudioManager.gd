@@ -3,9 +3,9 @@ extends Node
 @onready var sounds_audio_stream_player: AudioStreamPlayer = $SoundsAudioStreamPlayer
 @onready var music_audio_stream_player: AudioStreamPlayer = $MusicAudioStreamPlayer
 
-var volume_master:float = 0.5
-var volume_sound:float = 0.5
-var volume_music:float = 0.5
+var volume_master:float = 0.0
+var volume_sound:float = 0.0
+var volume_music:float = 0.0
 var master_index:int
 var music_index:int
 var sound_index:int

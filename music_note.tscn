@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dsdrce2kftlnj"]
 
 [ext_resource type="Script" uid="uid://gclfrhugcfv5" path="res://music_note.gd" id="1_m1p73"]
-[ext_resource type="Script" uid="uid://byonwxrdx1el4" path="res://TimerBump.gd" id="2_aceds"]
+[ext_resource type="Script" uid="uid://byonwxrdx1el4" path="res://components/TimerBump.gd" id="2_aceds"]
 
 [sub_resource type="Gradient" id="Gradient_shohy"]
 

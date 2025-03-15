@@ -1,16 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://daybbfaacsi28"]
+[gd_scene load_steps=2 format=3 uid="uid://daybbfaacsi28"]
 
 [ext_resource type="Script" uid="uid://btsvon0gbkwx3" path="res://result_banner.gd" id="1_g1p7v"]
 
-[sub_resource type="Gradient" id="Gradient_xkq51"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_g1p7v"]
-gradient = SubResource("Gradient_xkq51")
-
-[node name="ResultBanner" type="Node2D"]
+[node name="ResultBanner" type="Sprite2D"]
 script = ExtResource("1_g1p7v")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture1D_g1p7v")
-region_enabled = true
-region_rect = Rect2(0, 0, 60, 40)

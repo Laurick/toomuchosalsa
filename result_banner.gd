@@ -1,4 +1,4 @@
-extends Node2D
+extends Sprite2D
 
 
 func _ready() -> void:
@@ -8,5 +8,11 @@ func _ready() -> void:
 	await tween.finished
 	queue_free()
 
-func set_image(image:Texture):
-	$Sprite2D.texture = image
+func set_perfect():
+	texture = preload("res://images/perfecto.png")
+
+func set_good():
+	texture = preload("res://images/rico.png")
+
+func set_bad():
+	texture = preload("res://images/ay_mamita.png")

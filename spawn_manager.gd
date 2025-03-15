@@ -3,6 +3,9 @@ class_name SpawnManager extends Node2D
 signal note_success(perfect:bool)
 signal note_failed()
 
+@export var color_left:Color
+@export var color_right:Color
+
 @onready var banner_scene:PackedScene = preload("res://result_banner.tscn")
 @onready var center: Marker2D = $"../Center/Marker2D"
 @onready var music_note_scene:PackedScene = preload("res://music_note.tscn")
@@ -56,16 +59,16 @@ func _process(delta: float) -> void:
 
 func spawn_right(note):
 	var music_note = music_note_scene.instantiate()
-	music_note.setup(note.input)
+	music_note.setup(note.input, color_right)
 	music_note.center = center
-	music_note.note_failed.connect(func (): note_failed.emit())
+	music_note.note_failed.connect(_note_away)
 	$SpawnerRight.add_child(music_note)
 
 func spawn_left(note):
 	var music_note = music_note_scene.instantiate()
-	music_note.setup(note.input)
+	music_note.setup(note.input, color_left)
 	music_note.center = center
-	music_note.note_failed.connect(func (): note_failed.emit())
+	music_note.note_failed.connect(_note_away)
 	$SpawnerLeft.add_child(music_note)
 
 func check_notes(side_node):
@@ -75,26 +78,25 @@ func check_notes(side_node):
 	var marker:Marker2D = note.get_child(1)
 	var distance:float = abs(marker.global_position.distance_to(center.global_position))
 
-	var result_color:Color
+	var banner = banner_scene.instantiate()
 	#print(distance)
-	if distance < 60:
-		#print('perfect')
-		result_color = Color.GOLD
+	if distance < 25:
+		banner.set_perfect()
 		note_success.emit(true)
 		note.queue_free()
-	elif  distance< 120:
-		#print('OK')
-		result_color = Color.GREEN
+	elif  distance < 50:
+		banner.set_good()
 		note_success.emit(false)
 		note.queue_free()
 	else: 
-		#print('fail')
-		result_color = Color.RED
+		banner.set_bad()
 		note_failed.emit()
-	var banner = banner_scene.instantiate()
 	banner.global_position = center.global_position
-	var g = GradientTexture1D.new()
-	g.gradient = Gradient.new()
-	g.gradient.set_color(0,result_color)
-	banner.set_image(g)
 	add_child(banner)
+
+func _note_away():
+	var banner = banner_scene.instantiate()
+	banner.set_bad()
+	banner.global_position = center.global_position
+	add_child(banner)
+	note_failed.emit()

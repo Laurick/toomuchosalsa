@@ -21,6 +21,7 @@ grow_vertical = 2
 script = ExtResource("1_nlkkf")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -33,6 +34,7 @@ offset_right = 51.0
 offset_bottom = 164.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 22
 
 [node name="PlayButton" parent="VBoxContainer" instance=ExtResource("2_nlkkf")]
 layout_mode = 2

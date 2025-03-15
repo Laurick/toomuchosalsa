@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://btc8w3jag5lxq"]
+[gd_scene load_steps=16 format=3 uid="uid://btc8w3jag5lxq"]
 
 [ext_resource type="Script" uid="uid://wpd8r4nf8hnk" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cfgynoh1tltiq" path="res://spawn_manager.gd" id="1_ig7tw"]
@@ -10,7 +10,9 @@
 [ext_resource type="Script" uid="uid://bpfnmxk3v7fhg" path="res://components/BoingComponent.gd" id="4_kek77"]
 [ext_resource type="Texture2D" uid="uid://c8hnsphscbyjw" path="res://images/dance3.png" id="5_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bt5yvtupjskyu" path="res://components/UIButton.tscn" id="5_efxa6"]
+[ext_resource type="StyleBox" uid="uid://lsn48mo682dy" path="res://styles/button_flat.tres" id="5_w48qg"]
 [ext_resource type="Texture2D" uid="uid://cs2ewd3qa0qku" path="res://images/dance4.png" id="6_kek77"]
+[ext_resource type="Theme" uid="uid://buorrie1vc8nq" path="res://styles/toomuchazucar_theme.tres" id="6_vivmo"]
 [ext_resource type="Texture2D" uid="uid://dwjf7mok2chq" path="res://images/indicator.png" id="11_dg77c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4c57u"]
@@ -93,9 +95,19 @@ scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(96, 51)
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/PauseContainer"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.0
+offset_top = -82.0
+offset_right = 182.0
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("5_w48qg")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PauseContainer/PanelContainer"]
 layout_mode = 2
@@ -106,21 +118,27 @@ theme_override_constants/margin_bottom = 22
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 22
 
 [node name="Label" type="Label" parent="CanvasLayer/PauseContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("6_vivmo")
+theme_override_font_sizes/font_size = 48
 text = "PAUSA"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PauseContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 22
 
 [node name="ContinueUiButton" parent="CanvasLayer/PauseContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("5_efxa6")]
+custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 text = "CONTINUAR"
 
 [node name="ExitUiButton" parent="CanvasLayer/PauseContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("5_efxa6")]
+custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 text = "SALIR"
 

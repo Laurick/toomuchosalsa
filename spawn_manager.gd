@@ -22,7 +22,6 @@ func play_song(song_string:String) -> void:
 		elif i  == 'r':
 			side = Constants.SPAWN.RIGHT
 		for t in song[i].keys():
-			print(song[i][t].type)
 			song_array.append({
 				"side": side,
 				"time":float(t),
@@ -61,7 +60,7 @@ func spawn_right(note):
 	music_note.center = center
 	music_note.note_failed.connect(func (): note_failed.emit())
 	$SpawnerRight.add_child(music_note)
-	
+
 func spawn_left(note):
 	var music_note = music_note_scene.instantiate()
 	music_note.setup(note.input)
@@ -79,17 +78,17 @@ func check_notes(side_node):
 	var result_color:Color
 	#print(distance)
 	if distance < 60:
-		print('perfect')
+		#print('perfect')
 		result_color = Color.GOLD
 		note_success.emit(true)
 		note.queue_free()
 	elif  distance< 120:
-		print('OK')
+		#print('OK')
 		result_color = Color.GREEN
 		note_success.emit(false)
 		note.queue_free()
 	else: 
-		print('fail')
+		#print('fail')
 		result_color = Color.RED
 		note_failed.emit()
 	var banner = banner_scene.instantiate()

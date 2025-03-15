@@ -41,8 +41,7 @@ func parse_song(song_name:String) -> Dictionary[String, Dictionary]:
 	return song_parsed
 
 
-func read_song_file(song_name:String) -> PackedStringArray:
-	var file_path:String = "res://audio/song/%s.txt" % song_name
+func read_song_file(file_path:String) -> PackedStringArray:
 	var file_content:String = FileAccess.get_file_as_string(file_path)
 	if file_content == "": 
 		printerr("Oh no, file not present :( -> %s" % file_path)

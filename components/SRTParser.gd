@@ -109,18 +109,6 @@ func parse_timestamp(timestamp: String) -> float:
 	
 	return hours * 3600 + minutes * 60 + seconds + millisecs / 1000.0
 
-# Example usage
-func _ready() -> void:
-	var subtitles := parse_srt_file("res://path/to/your/subtitle.srt")
-	for subtitle in subtitles:
-		print(subtitle)
-	
-	# Example: Find subtitle at a specific time
-	var current_time := 65.5  # 1:05.5
-	var current_subtitle := get_subtitle_at_time(subtitles, current_time)
-	if current_subtitle:
-		print("Current subtitle: ", current_subtitle.text)
-
 # Helper function to find subtitle at a specific time
 func get_subtitle_at_time(subtitles: Array[SubtitleEntry], time: float) -> SubtitleEntry:
 	for subtitle in subtitles:

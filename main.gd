@@ -9,8 +9,13 @@ var loop_dance_score = 0
 
 var song_idx = 0
 var song_list = [
-	"salsa.mp3","salsa2.wav"
+	{"song": "salsa.mp3", "inputs": "res://audio/song/salsa.txt", "text":"res://audio/song/song.txt"},
+	{"song": "salsa2.wav", "inputs": "res://audio/song/salsa.txt", "text":"res://audio/song/song.txt"}
 ]
+
+var srt_parser:SRTParser = SRTParser.new()
+var subtitles:Array = []
+var srt_time:float = 0
 
 func _ready() -> void:
 	init_song(false)
@@ -25,9 +30,11 @@ func init_song(looped:bool = true):
 	if song_idx > song_list.size()-1:
 		win_game()
 	loop_dance_score = 0
-	AudioManager.play_music(song_list[song_idx])
-	spawn_manager.play_song("salsa")
-
+	var song = song_list[song_idx]
+	AudioManager.play_music(song["song"])
+	spawn_manager.play_song(song["inputs"])
+	subtitles = srt_parser.parse_srt_file(song["text"])
+	srt_time = 0
 
 #TODO ver tema puntuaciones
 
@@ -36,11 +43,20 @@ func fail():
 	loop_dance_score -= 1
 	canvas_layer.update_score_label(balance_score)
 
+
 func success(perfect:bool):
 	balance_score += 1
 	score = score + (balance_score)
 	canvas_layer.update_score_label(balance_score)
 
+
+func _process(delta: float) -> void:
+	srt_time += delta
+	var subtitle: = srt_parser.get_subtitle_at_time(subtitles, srt_time)
+	if subtitle:
+		canvas_layer.add_subtitle(subtitle.text)
+	else:
+		canvas_layer.add_subtitle("")
 
 func _on_song_finished():
 	init_song()
@@ -54,6 +70,7 @@ func _on_exit_button_pressed() -> void:
 	AudioManager.play_music("")
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://main_menu.tscn")
+
 
 func win_game():
 	AudioManager.play_music("")

@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1l6uqhn4bxu5"]
+[gd_scene load_steps=12 format=3 uid="uid://d1l6uqhn4bxu5"]
 
 [ext_resource type="Script" uid="uid://dkrp53oye2q2n" path="res://main_menu.gd" id="1_nlkkf"]
+[ext_resource type="Texture2D" uid="uid://c03s7ye3ek7rj" path="res://images/main_menu_background.png" id="2_0o4t1"]
 [ext_resource type="PackedScene" uid="uid://bt5yvtupjskyu" path="res://components/UIButton.tscn" id="2_nlkkf"]
 [ext_resource type="Script" uid="uid://ckb3jel7owg8g" path="res://components/LabelVersion.gd" id="3_qe12f"]
 [ext_resource type="Script" uid="uid://pq4k5q0rtju2" path="res://options.gd" id="4_8qtwp"]
+[ext_resource type="Theme" uid="uid://buorrie1vc8nq" path="res://styles/toomuchazucar_theme.tres" id="5_0k4wn"]
 [ext_resource type="PackedScene" uid="uid://cejihvefiegin" path="res://components/sound_slider.tscn" id="5_dy7ct"]
 [ext_resource type="Texture2D" uid="uid://bkhvfjpghpxe3" path="res://images/star.png" id="6_dy7ct"]
 [ext_resource type="Script" uid="uid://bpfnmxk3v7fhg" path="res://components/BoingComponent.gd" id="6_nlkkf"]
@@ -19,6 +21,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nlkkf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0o4t1")
+expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(250, 0)
@@ -96,6 +108,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(243, 196)
+theme = ExtResource("5_0k4wn")
 script = ExtResource("4_8qtwp")
 
 [node name="MarginContainer" type="MarginContainer" parent="ConfigContainer"]
@@ -128,6 +141,7 @@ layout_mode = 2
 texture = ExtResource("8_0k4wn")
 
 [node name="CenterContainer" type="CenterContainer" parent="ConfigContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 
 [node name="UiButton" parent="ConfigContainer/MarginContainer/VBoxContainer/CenterContainer" instance=ExtResource("2_nlkkf")]
@@ -155,6 +169,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(282, 247)
+theme = ExtResource("5_0k4wn")
 
 [node name="MarginContainer" type="MarginContainer" parent="ControlsContainer"]
 layout_mode = 2
@@ -185,6 +200,7 @@ Praesent et nisi fermentum, faucibus lacus quis, dignissim arcu.
 Nullam fringilla mauris nisl, nec iaculis turpis posuere et. "
 
 [node name="CenterContainer2" type="CenterContainer" parent="ControlsContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 
 [node name="UiButton" parent="ControlsContainer/MarginContainer/VBoxContainer/CenterContainer2" instance=ExtResource("2_nlkkf")]

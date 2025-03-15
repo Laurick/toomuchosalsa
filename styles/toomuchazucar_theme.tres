@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://buorrie1vc8nq"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://buorrie1vc8nq"]
 
 [ext_resource type="StyleBox" uid="uid://lsn48mo682dy" path="res://styles/button_flat.tres" id="1_8j3m6"]
+[ext_resource type="FontFile" uid="uid://db3mk2mymkxl4" path="res://fonts/Itim-Regular.ttf" id="1_kt2ec"]
 
 [resource]
 Button/colors/font_color = Color(1, 0.713726, 0.92549, 1)
@@ -8,7 +9,11 @@ Button/colors/font_focus_color = Color(1, 0.713726, 0.92549, 1)
 Button/colors/font_hover_color = Color(1, 0.713726, 0.92549, 1)
 Button/constants/h_separation = 22
 Button/font_sizes/font_size = 28
+Button/fonts/font = ExtResource("1_kt2ec")
 Button/styles/focus = ExtResource("1_8j3m6")
 Button/styles/hover = ExtResource("1_8j3m6")
 Button/styles/normal = ExtResource("1_8j3m6")
 Button/styles/pressed = ExtResource("1_8j3m6")
+Label/font_sizes/font_size = 24
+Label/fonts/font = ExtResource("1_kt2ec")
+Panel/styles/panel = ExtResource("1_8j3m6")

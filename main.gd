@@ -15,7 +15,7 @@ var song_list = [
 	{"song": "salsa.mp3", "inputs": "res://audio/song/salsa.txt", "text":"res://audio/song/song.txt", "len":19.20},
 	{"song": "salsa_old.mp3", "inputs": "res://audio/song/salsa.txt", "text":"res://audio/song/song.txt","len":19.20}
 ]
-var delay = 1.15
+var delay = 1.1
 var srt_parser:SRTParser = SRTParser.new()
 var subtitles:Array[SubtitleEntry] = []
 var srt_time:float = 0
@@ -50,6 +50,8 @@ func init_song(looped:bool = true):
 #TODO ver tema puntuaciones
 func init_music_track(looped:bool = true):
 	$Game/AnimatedSprite2D.play("default")
+	$Game/AnimatedSprite2D2.play("default")
+	$Game/AnimatedSprite2D3.play("default")
 	var song = song_list[song_idx]
 	AudioManager.play_music(song["song"])
 	song_playing = true

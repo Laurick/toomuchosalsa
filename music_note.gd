@@ -37,7 +37,9 @@ func _process(delta: float) -> void:
 		appear = Time.get_ticks_msec()
 		first = true
 	global_position = global_position + (velocity*global_position.direction_to(center.global_position))
-	if !succeded and global_position.distance_to(center.global_position) <velocity:
-		note_failed.emit()
-		#print("tarda: " +str(Time.get_ticks_msec()-appear))
-		queue_free()
+	if global_position.distance_to(center.global_position) < velocity:
+		await get_tree().create_timer(0.1).timeout
+		if !succeded:
+			note_failed.emit()
+			#print("tarda: " +str(Time.get_ticks_msec()-appear))
+			queue_free()

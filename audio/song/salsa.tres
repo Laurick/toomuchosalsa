@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="TextResource" load_steps=2 format=3 uid="uid://b25p0ulavc0ok"]
+
+[ext_resource type="Script" uid="uid://co311ojucswj4" path="res://TextResource.gd" id="1_u2rlt"]
+
+[resource]
+script = ExtResource("1_u2rlt")
+text = "l;1;SPACE;PUSH
+r;1.6;SPACE;PUSH
+l;2.2;SPACE;PUSH
+r;2.8;SPACE;PUSH
+l;3.4;SPACE;PUSH
+r;4;SPACE;PUSH
+l;4.6;SPACE;PUSH"
+metadata/_custom_type_script = "uid://co311ojucswj4"

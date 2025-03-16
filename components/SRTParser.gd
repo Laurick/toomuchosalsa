@@ -2,14 +2,7 @@ class_name SRTParser
 
 # Parse an SRT file and return an array of SubtitleEntry objects
 func parse_srt_file(file_path: String) -> Array[SubtitleEntry]:
-	var file := FileAccess.open(file_path, FileAccess.READ)
-	if not file:
-		push_error("Could not open SRT file: " + file_path)
-		return []
-	
-	var content := file.get_as_text()
-	file.close()
-	
+	var content:String = load(file_path).text
 	return _parse_srt_content(content)
 
 # Parse SRT content from a string

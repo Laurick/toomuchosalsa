@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TooMuchoSalsa"
-config/version="v0.0.1"
+config/version="v0.0.4"
 run/main_scene="uid://d1l6uqhn4bxu5"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 
 Constants="*res://Constants.gd"
 AudioManager="*res://components/AudioManager.tscn"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [editor_plugins]
 

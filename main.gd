@@ -11,9 +11,9 @@ var song_playing = false
 
 var song_idx = 0
 var song_list = [
-	{"song": "clicktrack.mp3", "inputs": "res://audio/song/salsa.txt", "text":"res://audio/song/song.txt", "len":19.20},
-	{"song": "salsa.mp3", "inputs": "res://audio/song/salsa.txt", "text":"res://audio/song/song.txt", "len":19.20},
-	{"song": "salsa_old.mp3", "inputs": "res://audio/song/salsa.txt", "text":"res://audio/song/song.txt","len":19.20}
+	{"song": "clicktrack.mp3", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres", "len":19.20},
+	{"song": "salsa.mp3", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres", "len":19.20},
+	{"song": "salsa_old.mp3", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres","len":19.20}
 ]
 var delay = 1.1
 var srt_parser:SRTParser = SRTParser.new()

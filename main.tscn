@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://btc8w3jag5lxq"]
+[gd_scene load_steps=34 format=3 uid="uid://btc8w3jag5lxq"]
 
 [ext_resource type="Script" uid="uid://wpd8r4nf8hnk" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cfgynoh1tltiq" path="res://spawn_manager.gd" id="1_ig7tw"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://dgts8r4etjh8w" path="res://images/escenario/TO_MUCH_AZUCAR_0000_DANCE_SPECIAL_C_2.png" id="20_xuqvo"]
 [ext_resource type="Texture2D" uid="uid://bbnjmblem67a2" path="res://images/escenario/TO_MUCH_AZUCAR_0009_DANCE_WALK_1.png" id="25_4k2k6"]
 [ext_resource type="Texture2D" uid="uid://c54hncyr3x4r5" path="res://images/escenario/TO_MUCH_AZUCAR_0008_DANCE_WALK_2.png" id="26_0rl1p"]
+[ext_resource type="Script" uid="uid://jge47yesdpa6" path="res://components/Ticker.gd" id="31_seu75"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lswn8"]
 animations = [{
@@ -320,7 +321,12 @@ position = Vector2(-600, 235)
 [node name="SpawnerRight" type="Marker2D" parent="Game/SpawnManager"]
 position = Vector2(600, 235)
 
+[node name="Ticker" type="Node" parent="."]
+script = ExtResource("31_seu75")
+metadata/_custom_type_script = "uid://jge47yesdpa6"
+
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="pressed" from="CanvasLayer/UI/MarginContainer/UiButton" to="CanvasLayer" method="show_pause"]
 [connection signal="pressed" from="CanvasLayer/PauseContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ContinueUiButton" to="CanvasLayer" method="hide_pause"]
 [connection signal="pressed" from="CanvasLayer/PauseContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ExitUiButton" to="." method="_on_exit_button_pressed"]
+[connection signal="on_tick_ticked" from="Ticker" to="." method="_on_tick_ticked"]

@@ -59,8 +59,8 @@ func init_music_track(looped:bool = true):
 
 
 func fail():
-	if dancers.animation != "error":
-		dancers.play("error")
+	if dancers.animation != &"error":
+		dancers.play(&"error")
 	balance_score -= 1
 	loop_dance_score -= 1
 	canvas_layer.update_score_label(balance_score)
@@ -102,3 +102,7 @@ func _on_exit_button_pressed() -> void:
 func win_game():
 	AudioManager.play_music("")
 	get_tree().change_scene_to_file("res://win.tscn")
+
+
+func _on_tick_ticked(tick_number: Variant) -> void:
+	pass # use to change animations?

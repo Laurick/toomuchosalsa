@@ -184,21 +184,12 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="ControlsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-Ut sit amet nisi dolor. 
-Donec non tempor mi. 
-Nullam euismod fringilla tortor ac consectetur. 
-Sed iaculis mi vitae nisi bibendum, ac congue odio lobortis. 
-Sed eu ullamcorper leo.
-Cras sapien nunc, imperdiet vitae hendrerit sed, mattis et sapien. 
-Curabitur a dui consectetur, accumsan nisl sit amet, pretium diam. 
-Maecenas sit amet aliquet tellus. 
-Morbi rutrum arcu ante, lobortis egestas urna tempus sed. 
-Mauris posuere sagittis dui, nec interdum leo volutpat at. 
-Vestibulum aliquam interdum auctor. 
-Pellentesque commodo quam odio, ac rhoncus sem finibus vel. 
-Praesent et nisi fermentum, faucibus lacus quis, dignissim arcu. 
-Nullam fringilla mauris nisl, nec iaculis turpis posuere et. "
+size_flags_vertical = 2
+text = "El maestro de la pista os ha condenado a bailar eternamente hasta la perfección.
+Os llegarán los pasos que guiarán vuestros pies desde ambos lados de la pantalla 
+y deberéis actuar pulsando la flecha correspondiente al lado de donde llegue la nota, 
+en el momento exacto.
+Si no lo hacéis perfecto tendréis que volver a empezar cada sección de la canción."
 
 [node name="CenterContainer2" type="CenterContainer" parent="ControlsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

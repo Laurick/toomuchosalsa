@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dm86n0fcjee4r" path="res://components/UITextureButton.tscn" id="3_4c57u"]
 [ext_resource type="Texture2D" uid="uid://1ylw41eu8sr3" path="res://images/pause.png" id="3_5vw27"]
 [ext_resource type="Script" uid="uid://dswauw5q2suwa" path="res://label_fps.gd" id="3_82xsv"]
-[ext_resource type="Script" uid="uid://bpfnmxk3v7fhg" path="res://components/BoingComponent.gd" id="4_kek77"]
+[ext_resource type="Script" path="res://components/BoingComponent.gd" id="4_kek77"]
 [ext_resource type="PackedScene" uid="uid://bt5yvtupjskyu" path="res://components/UIButton.tscn" id="5_efxa6"]
 [ext_resource type="StyleBox" uid="uid://lsn48mo682dy" path="res://styles/button_flat.tres" id="5_w48qg"]
 [ext_resource type="Theme" uid="uid://buorrie1vc8nq" path="res://styles/toomuchazucar_theme.tres" id="6_vivmo"]
@@ -21,7 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://bkcedqxtsyl06" path="res://images/escenario/TO_MUCH_AZUCAR_PEOPLE_1.png" id="17_1u8w0"]
 [ext_resource type="Texture2D" uid="uid://ha4pldgakyxs" path="res://images/escenario/TO_MUCH_AZUCAR_0007_DANCE_ERROR_1.png" id="17_kq58d"]
 [ext_resource type="Texture2D" uid="uid://biaqoqghwfkri" path="res://images/escenario/TO_MUCH_AZUCAR_PEOPLE_2.png" id="18_0odxb"]
-[ext_resource type="Texture2D" uid="uid://c5twhmgn2u8s" path="res://images/telon.jpg" id="18_cegan"]
 [ext_resource type="Texture2D" uid="uid://65fcid2xrfig" path="res://images/escenario/TO_MUCH_AZUCAR_0002_DANCE_SPECIAL_B_2.png" id="18_lswn8"]
 [ext_resource type="Texture2D" uid="uid://64k3ckkejwy1" path="res://images/escenario/TO_MUCH_AZUCAR_0006_DANCE_ERROR_2.png" id="18_seu75"]
 [ext_resource type="Texture2D" uid="uid://dxjg8f2flgksb" path="res://images/escenario/TO_MUCH_AZUCAR_0001_DANCE_SPECIAL_C_1.png" id="19_a6jrf"]
@@ -30,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://dgts8r4etjh8w" path="res://images/escenario/TO_MUCH_AZUCAR_0000_DANCE_SPECIAL_C_2.png" id="20_xuqvo"]
 [ext_resource type="Texture2D" uid="uid://bbnjmblem67a2" path="res://images/escenario/TO_MUCH_AZUCAR_0009_DANCE_WALK_1.png" id="25_4k2k6"]
 [ext_resource type="Texture2D" uid="uid://c54hncyr3x4r5" path="res://images/escenario/TO_MUCH_AZUCAR_0008_DANCE_WALK_2.png" id="26_0rl1p"]
+[ext_resource type="Texture2D" uid="uid://ymrp4oyxvn25" path="res://images/escenario/TO_MUCH_AZUCAR_COURTAIN.png" id="29_seu75"]
 [ext_resource type="Script" uid="uid://jge47yesdpa6" path="res://components/Ticker.gd" id="31_seu75"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lswn8"]
@@ -305,9 +305,9 @@ region_rect = Rect2(0, 0, 100, 100)
 [node name="Marker2D" type="Marker2D" parent="Game/Center"]
 
 [node name="Curtain" type="Sprite2D" parent="Game"]
-position = Vector2(1.69277e-05, -78.029)
-scale = Vector2(1.47848, 0.895306)
-texture = ExtResource("18_cegan")
+position = Vector2(1, -274.5)
+scale = Vector2(0.53745, 0.408916)
+texture = ExtResource("29_seu75")
 
 [node name="SpawnManager" type="Node2D" parent="Game"]
 unique_name_in_owner = true

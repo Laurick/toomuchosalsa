@@ -13,9 +13,17 @@ var song_playing = false
 
 var song_idx = 0
 var song_list = [
-	{"song": "clicktrack.mp3", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres", "len":19.20},
-	{"song": "salsa.mp3", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres", "len":19.20},
-	{"song": "salsa_old.mp3", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres","len":19.20}
+	{"song": "music_loop_1.wav", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres", "len":19.20},
+	{"song": "music_loop_2.wav", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres", "len":19.20},
+	{"song": "music_loop_3.wav", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres", "len":19.20},
+	{"song": "music_loop_4.wav", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres", "len":19.20},
+	{"song": "music_loop_5.wav", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres", "len":19.20},
+	{"song": "music_loop_6.wav", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres", "len":19.20},
+	{"song": "music_loop_7.wav", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres", "len":19.20},
+	{"song": "music_loop_8.wav", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres", "len":19.20},
+	{"song": "music_loop_9.wav", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres", "len":19.20},
+	{"song": "music_loop_10.wav", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres", "len":19.20},
+
 ]
 var srt_parser:SRTParser = SRTParser.new()
 var subtitles:Array[SubtitleEntry] = []
@@ -23,9 +31,12 @@ var srt_time:float = 0
 
 func _ready() -> void:
 
-	init_song(false)
 	var tween = get_tree().create_tween()
-	tween.tween_property($Game/Curtain, "position:y", -600, delay)
+	var down_time = 0.4
+	tween.tween_property($Game/Curtain, "position:y", 50, down_time)
+	tween.tween_property($Game/Curtain, "position:y", -750, delay-down_time)
+	await tween.finished
+	init_song(false)
 	spawn_manager.note_failed.connect(fail)
 	spawn_manager.note_success.connect(success)
 	AudioManager.connect_finished(_on_song_finished)
@@ -75,10 +86,10 @@ func success(perfect:bool):
 func _process(delta: float) -> void:
 	srt_time += delta
 	
-	#if song_playing:
-		#if int(AudioManager.get_track_position()) > song_list[song_idx].len-delay:
-			#song_playing = false
-			#init_song()
+	if song_playing:
+		if int(AudioManager.get_track_position()) > song_list[song_idx].len-delay:
+			song_playing = false
+			init_song()
 	var subtitle:SubtitleEntry = srt_parser.get_subtitle_at_time(subtitles, srt_time)
 	if subtitle:
 		canvas_layer.add_subtitle(subtitle, srt_time)

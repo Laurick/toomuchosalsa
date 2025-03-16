@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://d1l6uqhn4bxu5"]
 
 [ext_resource type="Script" uid="uid://dkrp53oye2q2n" path="res://main_menu.gd" id="1_nlkkf"]
-[ext_resource type="Texture2D" uid="uid://c03s7ye3ek7rj" path="res://images/main_menu_background.png" id="2_0o4t1"]
+[ext_resource type="Texture2D" uid="uid://b8ow8qx6b36uq" path="res://images/escenario/TO_MUCH_AZUCAR_SCREEN.png" id="2_j5v2v"]
 [ext_resource type="PackedScene" uid="uid://bt5yvtupjskyu" path="res://components/UIButton.tscn" id="2_nlkkf"]
 [ext_resource type="Script" uid="uid://ckb3jel7owg8g" path="res://components/LabelVersion.gd" id="3_qe12f"]
 [ext_resource type="Script" uid="uid://pq4k5q0rtju2" path="res://options.gd" id="4_8qtwp"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cejihvefiegin" path="res://components/sound_slider.tscn" id="5_dy7ct"]
 [ext_resource type="Texture2D" uid="uid://bkhvfjpghpxe3" path="res://images/star.png" id="6_dy7ct"]
 [ext_resource type="StyleBox" uid="uid://lsn48mo682dy" path="res://styles/button_flat.tres" id="6_j5v2v"]
-[ext_resource type="Script" uid="uid://bpfnmxk3v7fhg" path="res://components/BoingComponent.gd" id="6_nlkkf"]
+[ext_resource type="Script" path="res://components/BoingComponent.gd" id="6_nlkkf"]
 [ext_resource type="Texture2D" uid="uid://s1drnpjd7q5y" path="res://images/musicOn.png" id="7_0o4t1"]
 [ext_resource type="Texture2D" uid="uid://ca028dc6kwjdu" path="res://images/audioOn.png" id="8_0k4wn"]
 
@@ -30,7 +30,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_0o4t1")
+texture = ExtResource("2_j5v2v")
 expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]

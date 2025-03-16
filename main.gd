@@ -8,9 +8,11 @@ var song_playing = false
 @onready var spawn_manager: SpawnManager = %SpawnManager
 @onready var canvas_layer: UI = $CanvasLayer
 
+
 var song_idx = 0
 var song_list = [
 	{"song": "salsa.mp3", "inputs": "res://audio/song/salsa.txt", "text":"res://audio/song/song.txt", "len":19.20},
+	{"song": "clicktrack.mp3", "inputs": "res://audio/song/salsa.txt", "text":"res://audio/song/song.txt", "len":19.20},
 	{"song": "salsa_old.mp3", "inputs": "res://audio/song/salsa.txt", "text":"res://audio/song/song.txt","len":19.20}
 ]
 

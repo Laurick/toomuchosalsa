@@ -2,17 +2,24 @@ extends Node2D
 
 signal note_failed()
 
-var succeded = false
-@onready var note_image: Sprite2D = $NoteImage
-var velocity = 8
 @export var center:Marker2D
-var first = false
+@onready var note_image: Sprite2D = $NoteImage
+
+var succeded = false
+var velocity = 500
 var appear
+var arrival = false
+var leaving = false
+var frames_spare = 12
 
 var _arrow:Constants.INPUTS
 var _color:Color
+var direction:Vector2
 
 func _ready() -> void:
+	appear = Time.get_ticks_msec()
+	
+	direction = global_position.direction_to(center.global_position)
 	match (_arrow):
 		Constants.INPUTS.LEFT:
 			note_image.texture = load("res://images/arrow_left.png")
@@ -31,15 +38,23 @@ func setup(arrow:Constants.INPUTS, color:Color):
 	_color = color
 
 func _process(delta: float) -> void:
-	
-	if !first:
-		#print(global_position.distance_to(center.global_position))
-		appear = Time.get_ticks_msec()
-		first = true
-	global_position = global_position + (velocity*global_position.direction_to(center.global_position))
-	if global_position.distance_to(center.global_position) < velocity:
-		await get_tree().create_timer(0.1).timeout
-		if !succeded:
-			note_failed.emit()
-			#print("tarda: " +str(Time.get_ticks_msec()-appear))
-			queue_free()
+	if leaving: 
+		frames_spare -= 1
+		if frames_spare == 0:
+			check()
+		return
+
+	global_position = global_position + (velocity*delta*direction)
+
+	if arrival:
+		leaving = true
+		global_position = center.global_position
+		#print(name+" tarda: " +str(Time.get_ticks_msec()-appear))
+	elif global_position.distance_to(center.global_position) < 8:
+		arrival = true
+
+func check():
+	if !succeded:
+		#print(name+" se fue: " +str(Time.get_ticks_msec()-appear))
+		note_failed.emit()
+		queue_free()

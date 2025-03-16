@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="TooMuchoSalsa"
-config/version="v0.0.4"
+config/version="v0.0.6"
 run/main_scene="uid://d1l6uqhn4bxu5"
 config/features=PackedStringArray("4.4", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]

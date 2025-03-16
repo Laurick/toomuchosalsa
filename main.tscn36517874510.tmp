@@ -1,11 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://btc8w3jag5lxq"]
+[gd_scene load_steps=23 format=3 uid="uid://btc8w3jag5lxq"]
 
 [ext_resource type="Script" uid="uid://wpd8r4nf8hnk" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cfgynoh1tltiq" path="res://spawn_manager.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://b803w4ch360j8" path="res://ui.gd" id="2_272bh"]
 [ext_resource type="PackedScene" uid="uid://dm86n0fcjee4r" path="res://components/UITextureButton.tscn" id="3_4c57u"]
 [ext_resource type="Texture2D" uid="uid://1ylw41eu8sr3" path="res://images/pause.png" id="3_5vw27"]
-[ext_resource type="Script" uid="uid://dswauw5q2suwa" path="res://label_fps.gd" id="3_82xsv"]
 [ext_resource type="Script" uid="uid://bpfnmxk3v7fhg" path="res://components/BoingComponent.gd" id="4_kek77"]
 [ext_resource type="PackedScene" uid="uid://bt5yvtupjskyu" path="res://components/UIButton.tscn" id="5_efxa6"]
 [ext_resource type="StyleBox" uid="uid://lsn48mo682dy" path="res://styles/button_flat.tres" id="5_w48qg"]
@@ -17,19 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://bfmske6niteei" path="res://images/escenario/TO_MUCH_AZUCAR_0011_DANCE_BASE_1.png" id="15_074og"]
 [ext_resource type="Texture2D" uid="uid://crh5if0q0xk7i" path="res://images/escenario/TO_MUCH_AZUCAR_0010_DANCE_BASE_2-copia.png" id="15_ryguw"]
 [ext_resource type="Texture2D" uid="uid://daty3ny5cgtdt" path="res://images/escenario/TO_MUCH_AZUCAR_STAGE_1.png" id="15_yaehf"]
-[ext_resource type="Texture2D" uid="uid://duwlcikjja84l" path="res://images/escenario/TO_MUCH_AZUCAR_0003_DANCE_SPECIAL_B_1.png" id="17_0odxb"]
 [ext_resource type="Texture2D" uid="uid://bkcedqxtsyl06" path="res://images/escenario/TO_MUCH_AZUCAR_PEOPLE_1.png" id="17_1u8w0"]
-[ext_resource type="Texture2D" uid="uid://ha4pldgakyxs" path="res://images/escenario/TO_MUCH_AZUCAR_0007_DANCE_ERROR_1.png" id="17_kq58d"]
 [ext_resource type="Texture2D" uid="uid://biaqoqghwfkri" path="res://images/escenario/TO_MUCH_AZUCAR_PEOPLE_2.png" id="18_0odxb"]
 [ext_resource type="Texture2D" uid="uid://c5twhmgn2u8s" path="res://images/telon.jpg" id="18_cegan"]
-[ext_resource type="Texture2D" uid="uid://65fcid2xrfig" path="res://images/escenario/TO_MUCH_AZUCAR_0002_DANCE_SPECIAL_B_2.png" id="18_lswn8"]
-[ext_resource type="Texture2D" uid="uid://64k3ckkejwy1" path="res://images/escenario/TO_MUCH_AZUCAR_0006_DANCE_ERROR_2.png" id="18_seu75"]
-[ext_resource type="Texture2D" uid="uid://dxjg8f2flgksb" path="res://images/escenario/TO_MUCH_AZUCAR_0001_DANCE_SPECIAL_C_1.png" id="19_a6jrf"]
-[ext_resource type="Texture2D" uid="uid://ocli1dbxk0k1" path="res://images/escenario/TO_MUCH_AZUCAR_0005_DANCE_SPECIAL_A_1.png" id="19_htxhm"]
-[ext_resource type="Texture2D" uid="uid://dxljveh73pso7" path="res://images/escenario/TO_MUCH_AZUCAR_0004_DANCE_SPECIAL_A_2.png" id="20_jq2sk"]
-[ext_resource type="Texture2D" uid="uid://dgts8r4etjh8w" path="res://images/escenario/TO_MUCH_AZUCAR_0000_DANCE_SPECIAL_C_2.png" id="20_xuqvo"]
-[ext_resource type="Texture2D" uid="uid://bbnjmblem67a2" path="res://images/escenario/TO_MUCH_AZUCAR_0009_DANCE_WALK_1.png" id="25_4k2k6"]
-[ext_resource type="Texture2D" uid="uid://c54hncyr3x4r5" path="res://images/escenario/TO_MUCH_AZUCAR_0008_DANCE_WALK_2.png" id="26_0rl1p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lswn8"]
 animations = [{
@@ -44,6 +33,8 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cegan"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4c57u"]
 animations = [{
@@ -60,58 +51,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("17_kq58d")
+"texture": ExtResource("15_ryguw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("18_seu75")
+"texture": SubResource("CompressedTexture2D_cegan")
 }],
-"loop": false,
-"name": &"error",
-"speed": 1.67
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("19_htxhm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_jq2sk")
-}],
-"loop": false,
-"name": &"special_a",
-"speed": 1.67
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("17_0odxb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_lswn8")
-}],
-"loop": false,
-"name": &"special_b",
-"speed": 1.67
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("19_a6jrf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_xuqvo")
-}],
-"loop": false,
-"name": &"special_c",
-"speed": 1.67
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("25_4k2k6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_0rl1p")
-}],
-"loop": false,
-"name": &"walk",
-"speed": 1.67
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
 }]
 
 [node name="Main" type="Node"]
@@ -146,28 +93,17 @@ theme_override_constants/margin_right = 22
 theme_override_constants/margin_bottom = 22
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer/UI/MarginContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Label2" type="Label" parent="CanvasLayer/UI/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-text = "60"
-script = ExtResource("3_82xsv")
-
 [node name="UiButton" parent="CanvasLayer/UI/MarginContainer" instance=ExtResource("3_4c57u")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture_normal = ExtResource("3_5vw27")
-
-[node name="Label" type="Label" parent="CanvasLayer/UI/MarginContainer"]
-layout_mode = 2
 
 [node name="PauseContainer" type="Control" parent="CanvasLayer"]
 visible = false
@@ -283,11 +219,10 @@ scale = Vector2(0.237805, 0.237805)
 sprite_frames = ExtResource("13_074og")
 autoplay = "default"
 
-[node name="Dancers" type="AnimatedSprite2D" parent="Game"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Game"]
 position = Vector2(-3.8147e-06, -25)
 scale = Vector2(0.416159, 0.416159)
 sprite_frames = SubResource("SpriteFrames_4c57u")
-animation = &"error"
 autoplay = "default"
 
 [node name="StageBackground" type="Sprite2D" parent="Game"]

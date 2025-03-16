@@ -46,7 +46,7 @@ func _process(delta: float) -> void:
 	var rounded_time:float = float("%.3f" % (time))
 	var note_time:float = float("%.3f" % (song_array[0].time) )
 	#print(str(rounded_time) + '-' + str(note_time))
-	if abs(rounded_time - note_time) < 0.100:
+	if abs(rounded_time - note_time) < 0.01:
 		var note = song_array[0]
 		if note.side == Constants.SPAWN.LEFT:
 			spawn_left(note)

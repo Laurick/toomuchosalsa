@@ -23,6 +23,8 @@ var srt_time:float = 0
 func _ready() -> void:
 
 	init_song(false)
+	var tween = get_tree().create_tween()
+	tween.tween_property($Game/Curtain, "position:y", -600, 1.2)
 	await get_tree().create_timer(1.2).timeout
 	init_music_track(false)
 	spawn_manager.note_failed.connect(fail)

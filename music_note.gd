@@ -39,5 +39,5 @@ func _process(delta: float) -> void:
 	global_position = global_position + (velocity*global_position.direction_to(center.global_position))
 	if !succeded and global_position.distance_to(center.global_position) <velocity:
 		note_failed.emit()
-		print("tarda: " +str(Time.get_ticks_msec()-appear))
+		#print("tarda: " +str(Time.get_ticks_msec()-appear))
 		queue_free()

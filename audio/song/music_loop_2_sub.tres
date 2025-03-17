@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="TextResource" load_steps=2 format=3 uid="uid://ds50xuo2wb2fq"]
+
+[ext_resource type="Script" uid="uid://co311ojucswj4" path="res://TextResource.gd" id="1_v4pfj"]
+
+[resource]
+script = ExtResource("1_v4pfj")
+text = "1
+00:00:00,000 --> 00:00:07,740
+Hoy, día gris, solo en el metro, maletín sobre mi falda
+
+2
+00:00:09,100 --> 00:00:12,540
+sentí que el mundo cargaba sobre mi espalda
+
+3
+00:00:13,700 --> 00:00:17,200
+para aliviar, salí solo a bailar."
+metadata/_custom_type_script = "uid://co311ojucswj4"

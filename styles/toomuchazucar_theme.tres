@@ -1,20 +1,21 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://buorrie1vc8nq"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://buorrie1vc8nq"]
 
 [ext_resource type="StyleBox" uid="uid://lsn48mo682dy" path="res://styles/button_flat.tres" id="1_8j3m6"]
 [ext_resource type="FontFile" uid="uid://blufgu2wy0aca" path="res://fonts/Federo-Regular.ttf" id="1_jufdx"]
 [ext_resource type="FontFile" uid="uid://db3mk2mymkxl4" path="res://fonts/Itim-Regular.ttf" id="1_kt2ec"]
+[ext_resource type="StyleBox" uid="uid://b7p3g6s50tvow" path="res://styles/button_2.tres" id="2_lo6wa"]
+[ext_resource type="StyleBox" uid="uid://dyjl70ty81i8i" path="res://styles/button_1.tres" id="3_lo6wa"]
 
 [resource]
 Button/colors/font_color = Color(1, 0.713726, 0.92549, 1)
 Button/colors/font_focus_color = Color(1, 0.713726, 0.92549, 1)
 Button/colors/font_hover_color = Color(1, 0.713726, 0.92549, 1)
-Button/constants/h_separation = 22
-Button/font_sizes/font_size = 28
+Button/font_sizes/font_size = 42
 Button/fonts/font = ExtResource("1_jufdx")
-Button/styles/focus = ExtResource("1_8j3m6")
-Button/styles/hover = ExtResource("1_8j3m6")
-Button/styles/normal = ExtResource("1_8j3m6")
-Button/styles/pressed = ExtResource("1_8j3m6")
+Button/styles/focus = ExtResource("2_lo6wa")
+Button/styles/hover = ExtResource("2_lo6wa")
+Button/styles/normal = ExtResource("3_lo6wa")
+Button/styles/pressed = ExtResource("2_lo6wa")
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_kt2ec")
 Panel/styles/panel = ExtResource("1_8j3m6")

@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cejihvefiegin" path="res://components/sound_slider.tscn" id="5_dy7ct"]
 [ext_resource type="Texture2D" uid="uid://bkhvfjpghpxe3" path="res://images/star.png" id="6_dy7ct"]
 [ext_resource type="StyleBox" uid="uid://lsn48mo682dy" path="res://styles/button_flat.tres" id="6_j5v2v"]
-[ext_resource type="Script" path="res://components/BoingComponent.gd" id="6_nlkkf"]
+[ext_resource type="Script" uid="uid://bpfnmxk3v7fhg" path="res://components/BoingComponent.gd" id="6_nlkkf"]
 [ext_resource type="Texture2D" uid="uid://s1drnpjd7q5y" path="res://images/musicOn.png" id="7_0o4t1"]
 [ext_resource type="Texture2D" uid="uid://ca028dc6kwjdu" path="res://images/audioOn.png" id="8_0k4wn"]
 
@@ -33,32 +33,49 @@ grow_vertical = 2
 texture = ExtResource("2_j5v2v")
 expand_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(250, 0)
+[node name="PlayButton" parent="." instance=ExtResource("2_nlkkf")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -51.0
-offset_top = 63.0
-offset_right = 51.0
-offset_bottom = 164.0
+offset_left = -200.0
+offset_top = -25.0
+offset_right = 200.0
+offset_bottom = 62.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 22
-
-[node name="PlayButton" parent="VBoxContainer" instance=ExtResource("2_nlkkf")]
-layout_mode = 2
 text = "BAILAR"
 
-[node name="ConfigButton" parent="VBoxContainer" instance=ExtResource("2_nlkkf")]
-layout_mode = 2
+[node name="ConfigButton" parent="." instance=ExtResource("2_nlkkf")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 88.5
+offset_right = 200.0
+offset_bottom = 175.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "OPCIONES"
 
-[node name="ControlsButton" parent="VBoxContainer" instance=ExtResource("2_nlkkf")]
-layout_mode = 2
+[node name="ControlsButton" parent="." instance=ExtResource("2_nlkkf")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 200.5
+offset_right = 200.0
+offset_bottom = 287.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "CONTROLES"
 
 [node name="LabelVersion" type="Label" parent="."]
@@ -146,7 +163,7 @@ texture = ExtResource("8_0k4wn")
 layout_mode = 2
 
 [node name="UiButton" parent="ConfigContainer/MarginContainer/VBoxContainer/CenterContainer" instance=ExtResource("2_nlkkf")]
-custom_minimum_size = Vector2(180, 60)
+custom_minimum_size = Vector2(400, 87)
 layout_mode = 2
 text = "VOLVER"
 
@@ -195,16 +212,16 @@ Si no lo hacéis perfecto tendréis que volver a empezar cada sección de la can
 layout_mode = 2
 
 [node name="UiButton" parent="ControlsContainer/MarginContainer/VBoxContainer/CenterContainer2" instance=ExtResource("2_nlkkf")]
-custom_minimum_size = Vector2(180, 60)
+custom_minimum_size = Vector2(400, 87)
 layout_mode = 2
 text = "VOLVER"
 
 [node name="BoingComponent" type="Node" parent="ControlsContainer"]
 script = ExtResource("6_nlkkf")
 
-[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/ConfigButton" to="." method="_on_config_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="ConfigButton" to="." method="_on_config_button_pressed"]
+[connection signal="pressed" from="ControlsButton" to="." method="_on_controls_button_pressed"]
 [connection signal="visibility_changed" from="ConfigContainer" to="ConfigContainer" method="_on_visibility_changed"]
 [connection signal="value_changed" from="ConfigContainer/MarginContainer/VBoxContainer/MasterContainer" to="ConfigContainer" method="_on_master_container_value_changed"]
 [connection signal="value_changed" from="ConfigContainer/MarginContainer/VBoxContainer/MusicContainer" to="ConfigContainer" method="_on_music_container_value_changed"]

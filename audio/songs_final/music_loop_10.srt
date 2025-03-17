@@ -1,0 +1,24 @@
+1
+00:00:00,000 --> 00:00:02,000
+Sigue el ritmo
+
+2
+00:00:02,000 --> 00:00:05,000
+Estos pasitos me dicen "too much azúcar"
+
+3
+00:00:05,000 --> 00:00:07,000
+Sigue el ritmo
+
+4
+00:00:09,000 --> 00:00:11,000
+Sigue el ritmo
+
+5
+00:00:11,000 --> 00:00:14,000
+Estos pasitos me dicen "too much azúcar"
+
+6
+00:00:14,000 --> 00:00:16,000
+Sigue el ritmo
+

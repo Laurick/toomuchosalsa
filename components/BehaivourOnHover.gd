@@ -9,11 +9,11 @@ func _ready() -> void:
 	target.button_down.connect(on_mouse_pressed)
 
 func on_mouse_entered():
-	create_tween().tween_property(target, "scale", Vector2(1.1,1.1), 0.1)
+	pass #create_tween().tween_property(target, "scale", Vector2(1.1,1.1), 0.1)
 
 func on_mouse_exited():
-	if is_inside_tree():
-		create_tween().tween_property(target, "scale", Vector2.ONE, 0.1)
+	pass #if is_inside_tree():
+		#create_tween().tween_property(target, "scale", Vector2.ONE, 0.1)
 
 func on_mouse_pressed():
-	target.scale = Vector2(0.9,0.9)
+	pass #target.scale = Vector2(0.9,0.9)

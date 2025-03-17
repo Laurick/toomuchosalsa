@@ -13,17 +13,16 @@ var song_playing = false
 
 var song_idx = 0
 var song_list = [
-	{"song": "music_loop_1.wav", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres", "len":19.20},
-	{"song": "music_loop_2.wav", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres", "len":19.20},
-	{"song": "music_loop_3.wav", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres", "len":19.20},
-	{"song": "music_loop_4.wav", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres", "len":19.20},
-	{"song": "music_loop_5.wav", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres", "len":19.20},
-	{"song": "music_loop_6.wav", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres", "len":19.20},
-	{"song": "music_loop_7.wav", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres", "len":19.20},
-	{"song": "music_loop_8.wav", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres", "len":19.20},
-	{"song": "music_loop_9.wav", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres", "len":19.20},
-	{"song": "music_loop_10.wav", "inputs": "res://audio/song/salsa.tres", "text":"res://audio/song/subtitles.tres", "len":19.20},
-
+	{"song": "music_loop_1.wav", "inputs": "res://audio/song/music_loop_1.tres", "text":"res://audio/song/music_loop_1_sub.tres"},
+	{"song": "music_loop_2.wav", "inputs": "res://audio/song/music_loop_2.tres", "text":"res://audio/song/music_loop_2_sub.tres"},
+	{"song": "music_loop_3.wav", "inputs": "res://audio/song/music_loop_3.tres", "text":"res://audio/song/music_loop_3_sub.tres"},
+	{"song": "music_loop_4.wav", "inputs": "res://audio/song/music_loop_4.tres", "text":"res://audio/song/music_loop_4_sub.tres"},
+	{"song": "music_loop_5.wav", "inputs": "res://audio/song/music_loop_5.tres", "text":"res://audio/song/music_loop_5_sub.tres"},
+	{"song": "music_loop_6.wav", "inputs": "res://audio/song/music_loop_6.tres", "text":"res://audio/song/music_loop_6_sub.tres"},
+	{"song": "music_loop_7.wav", "inputs": "res://audio/song/music_loop_7.tres", "text":"res://audio/song/music_loop_7_sub.tres"},
+	{"song": "music_loop_8.wav", "inputs": "res://audio/song/music_loop_8.tres", "text":"res://audio/song/music_loop_8_sub.tres"},
+	{"song": "music_loop_9.wav", "inputs": "res://audio/song/music_loop_9.tres", "text":"res://audio/song/music_loop_9_sub.tres"},
+	{"song": "music_loop_10.wav", "inputs": "res://audio/song/music_loop_10.tres", "text":"res://audio/song/music_loop_10_sub.tres"},
 ]
 var srt_parser:SRTParser = SRTParser.new()
 var subtitles:Array[SubtitleEntry] = []
@@ -45,11 +44,13 @@ func _ready() -> void:
 
 
 func init_song(looped:bool = true):
-	
 	if looped && loop_dance_score == 0 :
 		song_idx +=1
+		AudioManager.play_interjection_good()
+	else:
+		if looped:
+			AudioManager.play_interjection_bad()
 	if song_idx > song_list.size()-1:
-		#await get_tree().create_timer(delay).timeout
 		win_game()
 		return
 	loop_dance_score = 0
@@ -87,7 +88,7 @@ func _process(delta: float) -> void:
 	srt_time += delta
 	
 	if song_playing:
-		if int(AudioManager.get_track_position()) > song_list[song_idx].len-delay:
+		if int(AudioManager.get_track_position()) > 19.2-delay:
 			song_playing = false
 			init_song()
 	var subtitle:SubtitleEntry = srt_parser.get_subtitle_at_time(subtitles, srt_time)

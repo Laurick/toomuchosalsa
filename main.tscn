@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dm86n0fcjee4r" path="res://components/UITextureButton.tscn" id="3_4c57u"]
 [ext_resource type="Texture2D" uid="uid://1ylw41eu8sr3" path="res://images/pause.png" id="3_5vw27"]
 [ext_resource type="Script" uid="uid://dswauw5q2suwa" path="res://label_fps.gd" id="3_82xsv"]
-[ext_resource type="Script" path="res://components/BoingComponent.gd" id="4_kek77"]
+[ext_resource type="Script" uid="uid://bpfnmxk3v7fhg" path="res://components/BoingComponent.gd" id="4_kek77"]
 [ext_resource type="PackedScene" uid="uid://bt5yvtupjskyu" path="res://components/UIButton.tscn" id="5_efxa6"]
 [ext_resource type="StyleBox" uid="uid://lsn48mo682dy" path="res://styles/button_flat.tres" id="5_w48qg"]
 [ext_resource type="Theme" uid="uid://buorrie1vc8nq" path="res://styles/toomuchazucar_theme.tres" id="6_vivmo"]
@@ -221,17 +221,17 @@ text = "PAUSA"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PauseContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 22
 
 [node name="ContinueUiButton" parent="CanvasLayer/PauseContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("5_efxa6")]
-custom_minimum_size = Vector2(220, 0)
+custom_minimum_size = Vector2(400, 87)
 layout_mode = 2
 text = "CONTINUAR"
 
 [node name="ExitUiButton" parent="CanvasLayer/PauseContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("5_efxa6")]
-custom_minimum_size = Vector2(110, 0)
+custom_minimum_size = Vector2(400, 87)
 layout_mode = 2
 text = "SALIR"
 

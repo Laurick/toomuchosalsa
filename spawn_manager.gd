@@ -33,6 +33,8 @@ func play_song(song_string:String) -> void:
 				"type":song[i][t].type, 
 			})
 	song_array.sort_custom(func(a,b ):return float(a.time)<float(b.time))
+	if song_array[0].time == 0:
+		spawn_note(song_array[0])
 
 func _process(delta: float) -> void:
 	
@@ -47,18 +49,19 @@ func _process(delta: float) -> void:
 	var note_time:float = float("%.3f" % (song_array[0].time) )
 	#print(str(rounded_time) + '-' + str(note_time))
 	if abs(rounded_time - note_time) < 0.01:
-		var note = song_array[0]
-		if note.side == Constants.SPAWN.LEFT:
-			spawn_left(note)
-			spawned_notes.append(note)
-			song_array.pop_at(0)
+		spawn_note(song_array[0])
+
+
+func spawn_note(note):
+	if note.side == Constants.SPAWN.LEFT:
+		spawn_left(note)
+		spawned_notes.append(note)
+		song_array.pop_at(0)
 			
-		elif note.side == Constants.SPAWN.RIGHT:
-			spawn_right(note)
-			spawned_notes.append(note)
-			song_array.pop_at(0)
-
-
+	elif note.side == Constants.SPAWN.RIGHT:
+		spawn_right(note)
+		spawned_notes.append(note)
+		song_array.pop_at(0)
 
 func spawn_right(note):
 	var music_note = music_note_scene.instantiate()
@@ -91,7 +94,7 @@ func check_notes(side_node):
 	elif  distance < 70:
 		note.succeded = true
 		banner.set_good()
-		note_success.emit(false)
+		note_failed.emit()
 		note.queue_free()
 	else: 
 		banner.set_bad()

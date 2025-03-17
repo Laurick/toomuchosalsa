@@ -9,10 +9,10 @@ func _ready() -> void:
 	queue_free()
 
 func set_perfect():
-	texture = preload("res://images/perfecto.png")
+	texture = preload("res://images/logo-10.png")
 
 func set_good():
-	texture = preload("res://images/rico.png")
+	texture = preload("res://images/logo-11.png")
 
 func set_bad():
-	texture = preload("res://images/ay_mamita.png")
+	texture = preload("res://images/logo-12.png")

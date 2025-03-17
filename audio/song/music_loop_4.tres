@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="TextResource" load_steps=2 format=3 uid="uid://baru837krlbkg"]
+
+[ext_resource type="Script" uid="uid://co311ojucswj4" path="res://TextResource.gd" id="1_lvksg"]
+
+[resource]
+script = ExtResource("1_lvksg")
+text = "l;0;SPACE;PUSH
+r;0.45;SPACE;PUSH
+l;0.75;SPACE;PUSH
+r;1.05;SPACE;PUSH
+l;1.65;SPACE;PUSH
+r;1.95;SPACE;PUSH
+l;2.4;SPACE;PUSH
+r;2.85;SPACE;PUSH
+l;3.15;SPACE;PUSH
+r;3.45;SPACE;PUSH
+l;4.05;SPACE;PUSH
+r;4.5;SPACE;PUSH
+l;4.8;SPACE;PUSH
+r;5.25;SPACE;PUSH
+l;5.55;SPACE;PUSH
+r;5.85;SPACE;PUSH
+l;6.45;SPACE;PUSH
+r;6.75;SPACE;PUSH
+l;7.2;SPACE;PUSH
+r;7.65;SPACE;PUSH
+l;7.95;SPACE;PUSH
+r;8.25;SPACE;PUSH
+l;8.55;SPACE;PUSH
+r;8.85;SPACE;PUSH
+l;9.15;SPACE;PUSH
+r;9.3;SPACE;PUSH
+l;9.6;SPACE;PUSH
+r;10.05;SPACE;PUSH
+l;10.35;SPACE;PUSH
+r;10.65;SPACE;PUSH
+l;11.25;SPACE;PUSH
+r;11.55;SPACE;PUSH
+l;12;SPACE;PUSH
+r;12.45;SPACE;PUSH
+l;12.75;SPACE;PUSH
+r;13.05;SPACE;PUSH
+l;13.65;SPACE;PUSH
+r;14.1;SPACE;PUSH
+l;14.4;SPACE;PUSH
+r;14.85;SPACE;PUSH
+l;15.15;SPACE;PUSH
+r;15.45;SPACE;PUSH
+l;16.2;SPACE;PUSH
+r;16.5;SPACE;PUSH
+l;17;SPACE;PUSH
+r;17.2;SPACE;PUSH
+l;17.4;SPACE;PUSH
+r;17.6;SPACE;PUSH
+l;17.8;SPACE;PUSH
+r;18;SPACE;PUSH"
+metadata/_custom_type_script = "uid://co311ojucswj4"

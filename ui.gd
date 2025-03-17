@@ -27,7 +27,7 @@ func add_subtitle(subtitle:SubtitleEntry = null, time:float = 0):
 	var index_readed:int = subtitle.text.length()*p
 	var green_text:String = subtitle.text.substr(0, index_readed)
 	var white_text:String = subtitle.text.substr(index_readed, subtitle.text.length())
-	subtitles_label.text = "[color=green]%s[/color][color=white]%s[/color]" % [green_text, white_text]
+	subtitles_label.text = "[color=white]%s[/color][color=#FFB6ED]%s[/color]" % [green_text, white_text]
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Pause"):

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="TextResource" load_steps=2 format=3 uid="uid://2fw0ybx16r0t"]
+
+[ext_resource type="Script" uid="uid://co311ojucswj4" path="res://TextResource.gd" id="1_ypqal"]
+
+[resource]
+script = ExtResource("1_ypqal")
+text = "1
+00:00:00,000 --> 00:00:07,580
+Un cada paso, un fallo y otra vez vuelta a empezar
+
+2
+00:00:07,580 --> 00:00:18,320
+Pero en tus brazos bailaría eternamente al son de esta nuestra canción"
+metadata/_custom_type_script = "uid://co311ojucswj4"

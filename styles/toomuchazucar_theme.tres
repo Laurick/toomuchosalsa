@@ -1,10 +1,30 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://buorrie1vc8nq"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://buorrie1vc8nq"]
 
 [ext_resource type="StyleBox" uid="uid://lsn48mo682dy" path="res://styles/button_flat.tres" id="1_8j3m6"]
 [ext_resource type="FontFile" uid="uid://blufgu2wy0aca" path="res://fonts/Federo-Regular.ttf" id="1_jufdx"]
 [ext_resource type="FontFile" uid="uid://db3mk2mymkxl4" path="res://fonts/Itim-Regular.ttf" id="1_kt2ec"]
 [ext_resource type="StyleBox" uid="uid://b7p3g6s50tvow" path="res://styles/button_2.tres" id="2_lo6wa"]
 [ext_resource type="StyleBox" uid="uid://dyjl70ty81i8i" path="res://styles/button_1.tres" id="3_lo6wa"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lo6wa"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jhe3c"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2f8pq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lo6wa"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhe3c"]
+bg_color = Color(0.87451, 0.721569, 0.976471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2f8pq"]
+bg_color = Color(1, 0.670588, 0.866667, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(1, 0.223529, 0.8, 1)
 
 [resource]
 Button/colors/font_color = Color(1, 0.713726, 0.92549, 1)
@@ -16,6 +36,12 @@ Button/styles/focus = ExtResource("2_lo6wa")
 Button/styles/hover = ExtResource("2_lo6wa")
 Button/styles/normal = ExtResource("3_lo6wa")
 Button/styles/pressed = ExtResource("2_lo6wa")
+HSlider/icons/grabber = SubResource("CompressedTexture2D_lo6wa")
+HSlider/icons/grabber_disabled = SubResource("CompressedTexture2D_jhe3c")
+HSlider/icons/grabber_highlight = SubResource("CompressedTexture2D_2f8pq")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_lo6wa")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_jhe3c")
+HSlider/styles/slider = SubResource("StyleBoxFlat_2f8pq")
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_kt2ec")
 Panel/styles/panel = ExtResource("1_8j3m6")

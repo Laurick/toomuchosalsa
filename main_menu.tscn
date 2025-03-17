@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d1l6uqhn4bxu5"]
+[gd_scene load_steps=17 format=3 uid="uid://d1l6uqhn4bxu5"]
 
 [ext_resource type="Script" uid="uid://dkrp53oye2q2n" path="res://main_menu.gd" id="1_nlkkf"]
 [ext_resource type="Texture2D" uid="uid://b8ow8qx6b36uq" path="res://images/escenario/TO_MUCH_AZUCAR_SCREEN.png" id="2_j5v2v"]
@@ -12,6 +12,10 @@
 [ext_resource type="Script" uid="uid://bpfnmxk3v7fhg" path="res://components/BoingComponent.gd" id="6_nlkkf"]
 [ext_resource type="Texture2D" uid="uid://s1drnpjd7q5y" path="res://images/musicOn.png" id="7_0o4t1"]
 [ext_resource type="Texture2D" uid="uid://ca028dc6kwjdu" path="res://images/audioOn.png" id="8_0k4wn"]
+[ext_resource type="AudioStream" uid="uid://3sefdwjrjq6v" path="res://audio/375739__sgossner__woodclick-wood_click_ff_2.wav" id="12_iotk1"]
+[ext_resource type="Texture2D" uid="uid://4cdu2r62jekd" path="res://images/diablo_tutorial.png" id="14_g8g3n"]
+[ext_resource type="Texture2D" uid="uid://du1mgykef4d6" path="res://images/perfecto_tutorial.png" id="15_8u0te"]
+[ext_resource type="Texture2D" uid="uid://ddoay1g2ltjt3" path="res://images/uy_tutorial.png" id="16_oiatc"]
 
 [node name="MainMenu" type="Control"]
 z_index = 2
@@ -107,8 +111,6 @@ offset_right = -24.0
 offset_bottom = 307.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "
-"
 
 [node name="ConfigContainer" type="PanelContainer" parent="."]
 visible = false
@@ -167,6 +169,9 @@ custom_minimum_size = Vector2(400, 87)
 layout_mode = 2
 text = "VOLVER"
 
+[node name="AudioStreamPlayer" parent="ConfigContainer/MarginContainer/VBoxContainer/CenterContainer/UiButton" index="2"]
+stream = ExtResource("12_iotk1")
+
 [node name="BoingComponent" type="Node" parent="ConfigContainer"]
 script = ExtResource("6_nlkkf")
 
@@ -178,16 +183,72 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -282.0
-offset_top = -247.5
-offset_right = 282.0
-offset_bottom = 247.5
+offset_left = -457.0
+offset_top = -296.0
+offset_right = 467.0
+offset_bottom = 304.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(282, 247)
 theme = ExtResource("5_0k4wn")
 theme_override_styles/panel = ExtResource("6_j5v2v")
+
+[node name="Control" type="Control" parent="ControlsContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ControlsContainer/Control"]
+layout_mode = 2
+offset_left = 68.0
+offset_top = 224.0
+offset_right = 980.0
+offset_bottom = 616.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_g8g3n")
+expand_mode = 1
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="ControlsContainer/Control"]
+layout_mode = 2
+offset_left = 457.0
+offset_top = 264.0
+offset_right = 1369.0
+offset_bottom = 656.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_8u0te")
+expand_mode = 1
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="ControlsContainer/Control"]
+layout_mode = 2
+offset_left = 66.0
+offset_top = 341.0
+offset_right = 978.0
+offset_bottom = 733.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_oiatc")
+expand_mode = 1
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="ControlsContainer/Control"]
+layout_mode = 0
+offset_left = 233.0
+offset_top = 330.0
+offset_right = 399.0
+offset_bottom = 398.0
+rotation = 0.0960549
+theme_override_font_sizes/font_size = 56
+text = "Así NO"
+
+[node name="Label2" type="Label" parent="ControlsContainer/Control"]
+layout_mode = 0
+offset_left = 680.0
+offset_top = 346.0
+offset_right = 820.0
+offset_bottom = 414.0
+rotation = -0.459995
+theme_override_font_sizes/font_size = 56
+text = "Así SÌ"
 
 [node name="MarginContainer" type="MarginContainer" parent="ControlsContainer"]
 layout_mode = 2
@@ -206,7 +267,10 @@ text = "El maestro de la pista os ha condenado a bailar eternamente hasta la per
 Os llegarán los pasos que guiarán vuestros pies desde ambos lados de la pantalla 
 y deberéis actuar pulsando la flecha correspondiente al lado de donde llegue la nota, 
 en el momento exacto.
-Si no lo hacéis perfecto tendréis que volver a empezar cada sección de la canción."
+Si no lo hacéis perfecto pisaréis a vuestra pareja y
+tendréis que volver a empezar cada sección de la canción."
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CenterContainer2" type="CenterContainer" parent="ControlsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -215,6 +279,9 @@ layout_mode = 2
 custom_minimum_size = Vector2(400, 87)
 layout_mode = 2
 text = "VOLVER"
+
+[node name="AudioStreamPlayer" parent="ControlsContainer/MarginContainer/VBoxContainer/CenterContainer2/UiButton" index="2"]
+stream = ExtResource("12_iotk1")
 
 [node name="BoingComponent" type="Node" parent="ControlsContainer"]
 script = ExtResource("6_nlkkf")

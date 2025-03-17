@@ -28,9 +28,9 @@ func parse_song(song_name:String) -> Dictionary[String, Dictionary]:
 				type_input = Constants.INPUTS.SPACE
 		var type:Constants.TYPES
 		match line_data[3]:
-			"hold":
+			"HOLD":
 				type = Constants.TYPES.HOLD
-			"push":
+			"PUSH":
 				type = Constants.TYPES.PUSH
 		var song_input:SongInput = SongInput.new()
 		song_input.input = type_input

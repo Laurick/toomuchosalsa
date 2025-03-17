@@ -47,8 +47,8 @@ func _process(delta: float) -> void:
 		return
 	var rounded_time:float = float("%.3f" % (time))
 	var note_time:float = float("%.3f" % (song_array[0].time) )
-	#print(str(rounded_time) + '-' + str(note_time))
-	if abs(rounded_time - note_time) < 0.01:
+	var a = abs(rounded_time - note_time)
+	if a < 0.02:
 		spawn_note(song_array[0])
 
 
@@ -65,19 +65,21 @@ func spawn_note(note):
 
 func spawn_right(note):
 	var music_note = music_note_scene.instantiate()
-	music_note.setup(note.input, color_right)
+	music_note.setup(note.input, color_right, note.type)
 	music_note.center = center
 	music_note.note_failed.connect(_note_away)
 	$SpawnerRight.add_child(music_note)
 
 func spawn_left(note):
 	var music_note = music_note_scene.instantiate()
-	music_note.setup(note.input, color_left)
+	music_note.setup(note.input, color_left, note.type)
 	music_note.center = center
 	music_note.note_failed.connect(_note_away)
 	$SpawnerLeft.add_child(music_note)
 
 func check_notes(side_node):
+	if side_node.get_child_count() == 0:
+		return
 	var note:Node2D = side_node.get_child(0)
 	if !note:
 		return
@@ -89,7 +91,7 @@ func check_notes(side_node):
 	if distance < 25:
 		banner.set_perfect()
 		note.succeded = true
-		note_success.emit(true)
+		note_success.emit(note._type == Constants.TYPES.HOLD)
 		note.queue_free()
 	elif  distance < 70:
 		note.succeded = true

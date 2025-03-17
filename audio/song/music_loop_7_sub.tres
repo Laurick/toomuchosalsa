@@ -5,10 +5,14 @@
 [resource]
 script = ExtResource("1_j5cri")
 text = "1
-00:00:00,000 --> 00:00:07,580
-Tras la canción, una voz lo dijo por megafonía,
+00:00:00,000 --> 00:00:07,740
+Tras la canción, una voz lo dijo por megafonía:
 
 2
-00:00:09,180 --> 00:00:17,140
-Condenados estáis a no dejar la pista, vas a lograr hallarlo a perfección."
+00:00:09,100 --> 00:00:12,540
+Condenados estáis a no dejar la pista
+
+3
+00:00:13,700 --> 00:00:17,200
+hasta lograr hallar la perfección."
 metadata/_custom_type_script = "uid://co311ojucswj4"

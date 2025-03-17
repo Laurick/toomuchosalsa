@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://d5v8lh2vslso"]
+[gd_scene load_steps=6 format=3 uid="uid://d5v8lh2vslso"]
 
 [ext_resource type="Script" uid="uid://b7c8aj7ijo7fi" path="res://win.gd" id="1_tmki8"]
-[ext_resource type="Texture2D" uid="uid://c8hnsphscbyjw" path="res://images/dance3.png" id="1_wao2c"]
 [ext_resource type="PackedScene" uid="uid://bt5yvtupjskyu" path="res://components/UIButton.tscn" id="2_hgi8f"]
+[ext_resource type="Texture2D" uid="uid://bjqpy8aogdxad" path="res://images/escenario/TO_MUCH_AZUCAR_BG_1.png" id="2_yblwc"]
+[ext_resource type="Texture2D" uid="uid://dgts8r4etjh8w" path="res://images/escenario/TO_MUCH_AZUCAR_0000_DANCE_SPECIAL_C_2.png" id="3_u4bre"]
+[ext_resource type="Theme" uid="uid://buorrie1vc8nq" path="res://styles/toomuchazucar_theme.tres" id="4_u4bre"]
 
 [node name="Win" type="Control"]
 layout_mode = 3
@@ -17,39 +19,36 @@ script = ExtResource("1_tmki8")
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("1_wao2c")
+texture = ExtResource("2_yblwc")
+expand_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -106.0
-offset_top = -20.0
-offset_right = 106.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("3_u4bre")
+expand_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="Label" type="Label" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 22
-theme_override_constants/margin_top = 22
-theme_override_constants/margin_right = 22
-theme_override_constants/margin_bottom = 22
+offset_left = 722.0
+offset_top = 19.0
+offset_right = 1160.0
+offset_bottom = 78.0
+theme = ExtResource("4_u4bre")
+theme_override_font_sizes/font_size = 35
+text = "¡UN BAILE PERFECTO!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="UiButton" parent="." instance=ExtResource("2_hgi8f")]
+custom_minimum_size = Vector2(400, 87)
 layout_mode = 2
-
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "¡AY MAMITA QUE GANASTE!"
-
-[node name="UiButton" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_hgi8f")]
-layout_mode = 2
+offset_left = 369.0
+offset_top = 527.0
+offset_right = 787.0
+offset_bottom = 614.0
 size_flags_vertical = 4
-text = "AY MAMITA"
+text = "VOLVER"
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/UiButton" to="." method="_on_ui_button_pressed"]
+[connection signal="pressed" from="UiButton" to="." method="_on_ui_button_pressed"]

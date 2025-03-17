@@ -11,7 +11,7 @@ var master_index:int
 var music_index:int
 var sound_index:int
 
-var interjections_good = ["res://audio/interjections/success_exclamation_1.wav",
+var interjections_good = [
 "res://audio/interjections/success_exclamation_2.wav",
 "res://audio/interjections/success_exclamation_3.wav",
 "res://audio/interjections/success_exclamation_4.wav",
@@ -26,7 +26,6 @@ func _ready() -> void:
 	change_volume_master(volume_master)
 	change_volume_music(volume_music)
 	change_volume_sound(volume_sound)
-
 
 func change_volume_master(value:float) -> void:
 	AudioServer.set_bus_volume_db(master_index, linear_to_db(value))
@@ -72,3 +71,12 @@ func play_interjection_good():
 func play_interjection_bad():
 	music_audio_stream_player_2.stream = load(interjections_bad.pick_random())
 	music_audio_stream_player_2.play()
+
+
+func play_ok_sound():
+	sounds_audio_stream_player.stream = preload("res://audio/374104__sgossner__trumpet-staccato-f4-sum_shtrumpet_stac_g3_v1_rr2.wav")
+	sounds_audio_stream_player.play()
+
+func play_back_sound():
+	sounds_audio_stream_player.stream = preload("res://audio/375739__sgossner__woodclick-wood_click_ff_2.wav")
+	sounds_audio_stream_player.play()

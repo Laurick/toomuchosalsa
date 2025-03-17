@@ -1,17 +1,18 @@
-[gd_scene load_steps=34 format=3 uid="uid://btc8w3jag5lxq"]
+[gd_scene load_steps=35 format=3 uid="uid://btc8w3jag5lxq"]
 
 [ext_resource type="Script" uid="uid://wpd8r4nf8hnk" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cfgynoh1tltiq" path="res://spawn_manager.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://b803w4ch360j8" path="res://ui.gd" id="2_272bh"]
 [ext_resource type="PackedScene" uid="uid://dm86n0fcjee4r" path="res://components/UITextureButton.tscn" id="3_4c57u"]
 [ext_resource type="Texture2D" uid="uid://1ylw41eu8sr3" path="res://images/pause.png" id="3_5vw27"]
-[ext_resource type="Script" uid="uid://dswauw5q2suwa" path="res://label_fps.gd" id="3_82xsv"]
 [ext_resource type="Script" uid="uid://bpfnmxk3v7fhg" path="res://components/BoingComponent.gd" id="4_kek77"]
 [ext_resource type="PackedScene" uid="uid://bt5yvtupjskyu" path="res://components/UIButton.tscn" id="5_efxa6"]
 [ext_resource type="StyleBox" uid="uid://lsn48mo682dy" path="res://styles/button_flat.tres" id="5_w48qg"]
 [ext_resource type="Theme" uid="uid://buorrie1vc8nq" path="res://styles/toomuchazucar_theme.tres" id="6_vivmo"]
+[ext_resource type="AudioStream" uid="uid://3sefdwjrjq6v" path="res://audio/375739__sgossner__woodclick-wood_click_ff_2.wav" id="8_htxhm"]
 [ext_resource type="Texture2D" uid="uid://bjqpy8aogdxad" path="res://images/escenario/TO_MUCH_AZUCAR_BG_1.png" id="9_82xsv"]
 [ext_resource type="Texture2D" uid="uid://ck5ow6acqax86" path="res://images/escenario/TO_MUCH_AZUCAR_LIGHT_1.png" id="10_getpj"]
+[ext_resource type="FontFile" uid="uid://blufgu2wy0aca" path="res://fonts/Federo-Regular.ttf" id="10_htxhm"]
 [ext_resource type="Texture2D" uid="uid://dwjf7mok2chq" path="res://images/indicator.png" id="11_dg77c"]
 [ext_resource type="SpriteFrames" uid="uid://b246qkxiwi7mu" path="res://images/other_dancers_animation.tres" id="13_074og"]
 [ext_resource type="Texture2D" uid="uid://bfmske6niteei" path="res://images/escenario/TO_MUCH_AZUCAR_0011_DANCE_BASE_1.png" id="15_074og"]
@@ -110,7 +111,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("26_0rl1p")
 }],
-"loop": false,
+"loop": true,
 "name": &"walk",
 "speed": 1.67
 }]
@@ -154,14 +155,8 @@ size_flags_vertical = 0
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Label2" type="Label" parent="CanvasLayer/UI/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-text = "60"
-script = ExtResource("3_82xsv")
-
 [node name="UiButton" parent="CanvasLayer/UI/MarginContainer" instance=ExtResource("3_4c57u")]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -169,6 +164,7 @@ texture_normal = ExtResource("3_5vw27")
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/MarginContainer"]
 layout_mode = 2
+theme = ExtResource("6_vivmo")
 
 [node name="PauseContainer" type="Control" parent="CanvasLayer"]
 visible = false
@@ -235,10 +231,14 @@ custom_minimum_size = Vector2(400, 87)
 layout_mode = 2
 text = "SALIR"
 
+[node name="AudioStreamPlayer" parent="CanvasLayer/PauseContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ExitUiButton" index="2"]
+stream = ExtResource("8_htxhm")
+
 [node name="BoingComponent" type="Node" parent="CanvasLayer/PauseContainer"]
 script = ExtResource("4_kek77")
 
 [node name="SubtitlesLabel" type="RichTextLabel" parent="CanvasLayer"]
+custom_minimum_size = Vector2(0, 45)
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -247,6 +247,8 @@ offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 8
+theme_override_fonts/normal_font = ExtResource("10_htxhm")
+theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 scroll_active = false
 horizontal_alignment = 1
@@ -288,7 +290,7 @@ autoplay = "default"
 position = Vector2(-3.8147e-06, -25)
 scale = Vector2(0.416159, 0.416159)
 sprite_frames = SubResource("SpriteFrames_4c57u")
-animation = &"error"
+animation = &"walk"
 autoplay = "default"
 
 [node name="StageBackground" type="Sprite2D" parent="Game"]
@@ -329,4 +331,7 @@ metadata/_custom_type_script = "uid://jge47yesdpa6"
 [connection signal="pressed" from="CanvasLayer/UI/MarginContainer/UiButton" to="CanvasLayer" method="show_pause"]
 [connection signal="pressed" from="CanvasLayer/PauseContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ContinueUiButton" to="CanvasLayer" method="hide_pause"]
 [connection signal="pressed" from="CanvasLayer/PauseContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ExitUiButton" to="." method="_on_exit_button_pressed"]
-[connection signal="on_tick_ticked" from="Ticker" to="." method="_on_tick_ticked"]
+[connection signal="animation_finished" from="Game/Dancers" to="." method="_on_dancers_animation_finished"]
+[connection signal="on_tick_ticked" from="Ticker" to="." method="_on_ticker_on_tick_ticked"]
+
+[editable path="CanvasLayer/PauseContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ExitUiButton"]

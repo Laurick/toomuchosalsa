@@ -5,11 +5,19 @@
 [resource]
 script = ExtResource("1_v4pfj")
 text = "1
-00:00:00,000 --> 00:00:07,800
-Copa bebida y al girar vi mujer cual dulce flor
+00:00:00,000 --> 00:00:02,800
+Copa bebida
 
 2
-00:00:07,800 --> 00:00:18,240
-Un guiño de ojos y salimos a bailar el sol de esta nuestra canción
+00:00:03,800 --> 00:00:07,800
+y al girar vi mujer cual dulce flor
+
+3
+00:00:08,800 --> 00:00:12,500
+Un guiño de ojos
+
+4
+00:00:14,000 --> 00:00:18,240
+y salimos a bailar el sol de esta nuestra canción
 "
 metadata/_custom_type_script = "uid://co311ojucswj4"

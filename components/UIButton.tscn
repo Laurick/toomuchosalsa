@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bt5yvtupjskyu"]
+[gd_scene load_steps=5 format=3 uid="uid://bt5yvtupjskyu"]
 
 [ext_resource type="Theme" uid="uid://buorrie1vc8nq" path="res://styles/toomuchazucar_theme.tres" id="1_g4gch"]
 [ext_resource type="PackedScene" uid="uid://b1bxqjm1hlg6a" path="res://components/PivotChanger.tscn" id="1_y5dqm"]
 [ext_resource type="Script" uid="uid://kot8ia5uw7ru" path="res://components/BehaivourOnHover.gd" id="2_bjqgn"]
+[ext_resource type="AudioStream" uid="uid://cfhmt2kqoh1n1" path="res://audio/374104__sgossner__trumpet-staccato-f4-sum_shtrumpet_stac_g3_v1_rr2.wav" id="4_jf077"]
 
 [node name="UiButton" type="Button"]
 offset_right = 400.0
@@ -23,3 +24,6 @@ grow_vertical = 2
 script = ExtResource("2_bjqgn")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_jf077")
+
+[connection signal="pressed" from="." to="AudioStreamPlayer" method="play" binds= [0.0]]

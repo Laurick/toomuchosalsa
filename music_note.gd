@@ -12,8 +12,9 @@ var arrival = false
 var leaving = false
 var frames_spare = 12
 
-var _arrow:Constants.INPUTS
-var _color:Color
+var _arrow: Constants.INPUTS
+var _color: Color
+var _type: Constants.TYPES
 var direction:Vector2
 
 func _ready() -> void:
@@ -33,9 +34,10 @@ func _ready() -> void:
 			note_image.texture = load("res://images/button.png")
 	note_image.modulate = _color
 
-func setup(arrow:Constants.INPUTS, color:Color):
+func setup(arrow:Constants.INPUTS, color:Color, type: Constants.TYPES):
 	_arrow = arrow
 	_color = color
+	_type = type
 
 func _process(delta: float) -> void:
 	if leaving: 

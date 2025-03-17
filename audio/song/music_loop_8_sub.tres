@@ -5,10 +5,19 @@
 [resource]
 script = ExtResource("1_ypqal")
 text = "1
-00:00:00,000 --> 00:00:07,580
-Un cada paso, un fallo y otra vez vuelta a empezar
+00:00:00,000 --> 00:00:02,800
+Con cada paso,
 
 2
-00:00:07,580 --> 00:00:18,320
-Pero en tus brazos bailaría eternamente al son de esta nuestra canción"
+00:00:03,800 --> 00:00:07,800
+un fallo y otra vez vuelta a empezar
+
+3
+00:00:08,800 --> 00:00:12,500
+Pero en tus brazos
+
+4
+00:00:14,000 --> 00:00:18,240
+bailaría eternamente al son de esta nuestra canción
+"
 metadata/_custom_type_script = "uid://co311ojucswj4"

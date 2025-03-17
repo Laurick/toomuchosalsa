@@ -20,7 +20,7 @@ var test: float = 0
 var last_value: float
 var count = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	time = get_time()
 	target.scale = Vector2.ONE * time
 	

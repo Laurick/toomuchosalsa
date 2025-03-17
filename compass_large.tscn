@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://che1pt5780t62"]
+
+[ext_resource type="Script" uid="uid://b8dwpkcg1aap5" path="res://compass.gd" id="1_q1l40"]
+
+[sub_resource type="Gradient" id="Gradient_shohy"]
+offsets = PackedFloat32Array(0, 0.949219, 1)
+colors = PackedColorArray(0.482353, 0.482353, 0.482353, 1, 0.482353, 0.482353, 0.482353, 1, 0.481789, 0.481789, 0.481789, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_m1p73"]
+gradient = SubResource("Gradient_shohy")
+
+[node name="CompassLarge" type="Node2D"]
+script = ExtResource("1_q1l40")
+
+[node name="NoteImage" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture1D_m1p73")
+region_enabled = true
+region_rect = Rect2(0, 0, 2, 64)
+
+[node name="Marker" type="Marker2D" parent="."]

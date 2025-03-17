@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="TextResource" load_steps=2 format=3 uid="uid://b2m4oskexivfi"]
+
+[ext_resource type="Script" uid="uid://co311ojucswj4" path="res://TextResource.gd" id="1_i8jm6"]
+
+[resource]
+script = ExtResource("1_i8jm6")
+text = "1
+00:00:02,300 --> 00:00:07,680
+Damas y caballeros, seres vivos e inertes, espero que estén disfrutando de la velada,
+
+2
+00:00:07,680 --> 00:00:13,440
+porque ahora empieza lo bueno. Prepárense para darlo todo esta noche, ya que no van a salir de
+
+3
+00:00:13,440 --> 00:00:20,280
+aquí hasta que no consigan realizar todos y cada uno de los pasos a la perfección. Si yo fuera
+
+4
+00:00:20,280 --> 00:00:25,240
+ustedes, me aseguraría de pulsar las flechas izquierda o derecha del teclado justo en su
+
+5
+00:00:25,240 --> 00:00:28,300
+preciso momento. ¡Música!"
+metadata/_custom_type_script = "uid://co311ojucswj4"

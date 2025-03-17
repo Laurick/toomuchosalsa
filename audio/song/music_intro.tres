@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="TextResource" load_steps=2 format=3 uid="uid://bbjdlqk1p7hbp"]
+
+[ext_resource type="Script" uid="uid://co311ojucswj4" path="res://TextResource.gd" id="1_lvksg"]
+
+[resource]
+script = ExtResource("1_lvksg")
+text = ""
+metadata/_custom_type_script = "uid://co311ojucswj4"

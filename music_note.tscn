@@ -12,6 +12,7 @@ gradient = SubResource("Gradient_shohy")
 script = ExtResource("1_m1p73")
 
 [node name="NoteImage" type="Sprite2D" parent="."]
+z_index = 1
 texture = SubResource("GradientTexture1D_m1p73")
 region_enabled = true
 region_rect = Rect2(0, 0, 64, 64)

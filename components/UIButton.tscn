@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://bt5yvtupjskyu"]
+[gd_scene load_steps=6 format=3 uid="uid://bt5yvtupjskyu"]
 
 [ext_resource type="Theme" uid="uid://buorrie1vc8nq" path="res://styles/toomuchazucar_theme.tres" id="1_g4gch"]
 [ext_resource type="PackedScene" uid="uid://b1bxqjm1hlg6a" path="res://components/PivotChanger.tscn" id="1_y5dqm"]
 [ext_resource type="Script" uid="uid://kot8ia5uw7ru" path="res://components/BehaivourOnHover.gd" id="2_bjqgn"]
-[ext_resource type="AudioStream" uid="uid://cfhmt2kqoh1n1" path="res://audio/374104__sgossner__trumpet-staccato-f4-sum_shtrumpet_stac_g3_v1_rr2.wav" id="4_jf077"]
+[ext_resource type="AudioStream" uid="uid://ckm12lkm3ie3l" path="res://audio/heels_SFX2.wav" id="4_jf077"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jf077"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("4_jf077")
 
 [node name="UiButton" type="Button"]
 offset_right = 400.0
@@ -24,6 +29,8 @@ grow_vertical = 2
 script = ExtResource("2_bjqgn")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_jf077")
+stream = SubResource("AudioStreamRandomizer_jf077")
+volume_db = -1.0
+bus = &"SFX"
 
 [connection signal="pressed" from="." to="AudioStreamPlayer" method="play" binds= [0.0]]

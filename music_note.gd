@@ -57,6 +57,7 @@ func _process(delta: float) -> void:
 
 func check():
 	if !succeded:
+		visible = false
 		#print(name+" se fue: " +str(Time.get_ticks_msec()-appear))
 		note_failed.emit()
 		queue_free()

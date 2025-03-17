@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d1l6uqhn4bxu5"]
+[gd_scene load_steps=16 format=3 uid="uid://d1l6uqhn4bxu5"]
 
 [ext_resource type="Script" uid="uid://dkrp53oye2q2n" path="res://main_menu.gd" id="1_nlkkf"]
 [ext_resource type="Texture2D" uid="uid://b8ow8qx6b36uq" path="res://images/escenario/TO_MUCH_AZUCAR_SCREEN.png" id="2_j5v2v"]
@@ -12,10 +12,9 @@
 [ext_resource type="Script" uid="uid://bpfnmxk3v7fhg" path="res://components/BoingComponent.gd" id="6_nlkkf"]
 [ext_resource type="Texture2D" uid="uid://s1drnpjd7q5y" path="res://images/musicOn.png" id="7_0o4t1"]
 [ext_resource type="Texture2D" uid="uid://ca028dc6kwjdu" path="res://images/audioOn.png" id="8_0k4wn"]
-[ext_resource type="AudioStream" uid="uid://3sefdwjrjq6v" path="res://audio/375739__sgossner__woodclick-wood_click_ff_2.wav" id="12_iotk1"]
-[ext_resource type="Texture2D" uid="uid://4cdu2r62jekd" path="res://images/diablo_tutorial.png" id="14_g8g3n"]
-[ext_resource type="Texture2D" uid="uid://du1mgykef4d6" path="res://images/perfecto_tutorial.png" id="15_8u0te"]
-[ext_resource type="Texture2D" uid="uid://ddoay1g2ltjt3" path="res://images/uy_tutorial.png" id="16_oiatc"]
+[ext_resource type="Texture2D" uid="uid://b1lawj376x74b" path="res://images/Instruccion-3.png" id="14_g8g3n"]
+[ext_resource type="Texture2D" uid="uid://b80kocohs5ehq" path="res://images/Instruccion-1.png" id="15_8u0te"]
+[ext_resource type="Texture2D" uid="uid://drr202oihykxj" path="res://images/Instruccion-2.png" id="16_oiatc"]
 
 [node name="MainMenu" type="Control"]
 z_index = 2
@@ -37,50 +36,86 @@ grow_vertical = 2
 texture = ExtResource("2_j5v2v")
 expand_mode = 1
 
-[node name="PlayButton" parent="." instance=ExtResource("2_nlkkf")]
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_top = -12.0
+offset_right = 40.0
+offset_bottom = 28.0
+
+[node name="PlayButton" parent="Control" instance=ExtResource("2_nlkkf")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -25.0
-offset_right = 200.0
-offset_bottom = 62.0
+offset_left = 139.0
+offset_top = 293.0
+offset_right = 539.0
+offset_bottom = 380.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "BAILAR"
 
-[node name="ConfigButton" parent="." instance=ExtResource("2_nlkkf")]
+[node name="SpectatorButton" parent="Control" instance=ExtResource("2_nlkkf")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = 88.5
-offset_right = 200.0
-offset_bottom = 175.5
+offset_left = 564.0
+offset_top = 293.0
+offset_right = 964.0
+offset_bottom = 380.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "ESPECTADOR"
+
+[node name="ConfigButton" parent="Control" instance=ExtResource("2_nlkkf")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 139.0
+offset_top = 411.0
+offset_right = 539.0
+offset_bottom = 498.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "OPCIONES"
 
-[node name="ControlsButton" parent="." instance=ExtResource("2_nlkkf")]
+[node name="ControlsButton" parent="Control" instance=ExtResource("2_nlkkf")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = 200.5
-offset_right = 200.0
-offset_bottom = 287.5
+offset_left = 564.0
+offset_top = 411.0
+offset_right = 964.0
+offset_bottom = 498.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "CONTROLES"
+
+[node name="CreditsButton" parent="Control" instance=ExtResource("2_nlkkf")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 346.0
+offset_top = 519.0
+offset_right = 746.0
+offset_bottom = 606.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "CREDITOS"
 
 [node name="LabelVersion" type="Label" parent="."]
 layout_mode = 1
@@ -98,17 +133,12 @@ grow_vertical = 0
 horizontal_alignment = 2
 script = ExtResource("3_qe12f")
 
-[node name="AGame" type="Label" parent="."]
+[node name="Control2" type="Control" parent="."]
+visible = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -561.0
-offset_top = 220.0
-offset_right = -24.0
-offset_bottom = 307.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -121,9 +151,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -243.0
-offset_top = -84.0
+offset_top = -112.5
 offset_right = 244.0
-offset_bottom = 197.0
+offset_bottom = 225.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1e-05, 1e-05)
@@ -169,9 +199,6 @@ custom_minimum_size = Vector2(400, 87)
 layout_mode = 2
 text = "VOLVER"
 
-[node name="AudioStreamPlayer" parent="ConfigContainer/MarginContainer/VBoxContainer/CenterContainer/UiButton" index="2"]
-stream = ExtResource("12_iotk1")
-
 [node name="BoingComponent" type="Node" parent="ConfigContainer"]
 script = ExtResource("6_nlkkf")
 
@@ -210,10 +237,10 @@ stretch_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="ControlsContainer/Control"]
 layout_mode = 2
-offset_left = 457.0
-offset_top = 264.0
-offset_right = 1369.0
-offset_bottom = 656.0
+offset_left = 513.0
+offset_top = 290.0
+offset_right = 1425.0
+offset_bottom = 682.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("15_8u0te")
 expand_mode = 1
@@ -221,10 +248,10 @@ stretch_mode = 2
 
 [node name="TextureRect3" type="TextureRect" parent="ControlsContainer/Control"]
 layout_mode = 2
-offset_left = 66.0
-offset_top = 341.0
-offset_right = 978.0
-offset_bottom = 733.0
+offset_left = 68.0
+offset_top = 350.0
+offset_right = 980.0
+offset_bottom = 742.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("16_oiatc")
 expand_mode = 1
@@ -232,23 +259,27 @@ stretch_mode = 2
 
 [node name="Label" type="Label" parent="ControlsContainer/Control"]
 layout_mode = 0
-offset_left = 233.0
-offset_top = 330.0
-offset_right = 399.0
-offset_bottom = 398.0
+offset_left = 278.0
+offset_top = 265.0
+offset_right = 444.0
+offset_bottom = 333.0
 rotation = 0.0960549
 theme_override_font_sizes/font_size = 56
-text = "Así NO"
+text = "Así NO
+:("
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="ControlsContainer/Control"]
 layout_mode = 0
-offset_left = 680.0
-offset_top = 346.0
-offset_right = 820.0
-offset_bottom = 414.0
+offset_left = 702.0
+offset_top = 297.0
+offset_right = 842.0
+offset_bottom = 365.0
 rotation = -0.459995
 theme_override_font_sizes/font_size = 56
-text = "Así SÌ"
+text = "Así SÍ
+:)"
+horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="ControlsContainer"]
 layout_mode = 2
@@ -280,24 +311,85 @@ custom_minimum_size = Vector2(400, 87)
 layout_mode = 2
 text = "VOLVER"
 
-[node name="AudioStreamPlayer" parent="ControlsContainer/MarginContainer/VBoxContainer/CenterContainer2/UiButton" index="2"]
-stream = ExtResource("12_iotk1")
-
 [node name="BoingComponent" type="Node" parent="ControlsContainer"]
 script = ExtResource("6_nlkkf")
 
-[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="ConfigButton" to="." method="_on_config_button_pressed"]
-[connection signal="pressed" from="ControlsButton" to="." method="_on_controls_button_pressed"]
+[node name="CreditrsContainer" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -200.0
+offset_right = 270.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(282, 247)
+theme = ExtResource("5_0k4wn")
+theme_override_styles/panel = ExtResource("6_j5v2v")
+
+[node name="MarginContainer" type="MarginContainer" parent="CreditrsContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 22
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditrsContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CreditrsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "Ildesir: Programación, Coro
+ElenaDev: Programación
+Moriegar: Arte, Diseño de personajes
+Psuzume: UI/UX
+Morphery: Música, SFX, Coro
+BardoCobarde: Letra, Voz de presentador, Coro
+Manolo Flores: Voz principal
+Eva Miranda: Coro "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="CreditrsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="UiButton" parent="CreditrsContainer/MarginContainer/VBoxContainer/CenterContainer2" instance=ExtResource("2_nlkkf")]
+custom_minimum_size = Vector2(400, 87)
+layout_mode = 2
+text = "VOLVER"
+
+[node name="BoingComponent" type="Node" parent="CreditrsContainer"]
+script = ExtResource("6_nlkkf")
+
+[connection signal="pressed" from="Control/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Control/SpectatorButton" to="." method="_on_spectator_button_pressed"]
+[connection signal="pressed" from="Control/ConfigButton" to="." method="_on_config_button_pressed"]
+[connection signal="pressed" from="Control/ConfigButton" to="Control2" method="set_visible" binds= [true]]
+[connection signal="pressed" from="Control/ControlsButton" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="Control/ControlsButton" to="Control2" method="set_visible" binds= [true]]
+[connection signal="pressed" from="Control/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Control/CreditsButton" to="Control2" method="set_visible" binds= [true]]
 [connection signal="visibility_changed" from="ConfigContainer" to="ConfigContainer" method="_on_visibility_changed"]
 [connection signal="value_changed" from="ConfigContainer/MarginContainer/VBoxContainer/MasterContainer" to="ConfigContainer" method="_on_master_container_value_changed"]
 [connection signal="value_changed" from="ConfigContainer/MarginContainer/VBoxContainer/MusicContainer" to="ConfigContainer" method="_on_music_container_value_changed"]
 [connection signal="value_changed" from="ConfigContainer/MarginContainer/VBoxContainer/SoundContainer" to="ConfigContainer" method="_on_sound_container_value_changed"]
 [connection signal="pressed" from="ConfigContainer/MarginContainer/VBoxContainer/CenterContainer/UiButton" to="ConfigContainer" method="hide"]
+[connection signal="pressed" from="ConfigContainer/MarginContainer/VBoxContainer/CenterContainer/UiButton" to="Control2" method="set_visible" binds= [false]]
 [connection signal="pressed" from="ControlsContainer/MarginContainer/VBoxContainer/CenterContainer2/UiButton" to="ControlsContainer" method="hide"]
+[connection signal="pressed" from="ControlsContainer/MarginContainer/VBoxContainer/CenterContainer2/UiButton" to="Control2" method="set_visible" binds= [false]]
+[connection signal="pressed" from="CreditrsContainer/MarginContainer/VBoxContainer/CenterContainer2/UiButton" to="CreditrsContainer" method="hide"]
+[connection signal="pressed" from="CreditrsContainer/MarginContainer/VBoxContainer/CenterContainer2/UiButton" to="Control2" method="set_visible" binds= [false]]
 
 [editable path="ConfigContainer/MarginContainer/VBoxContainer/MasterContainer"]
 [editable path="ConfigContainer/MarginContainer/VBoxContainer/MusicContainer"]
 [editable path="ConfigContainer/MarginContainer/VBoxContainer/SoundContainer"]
 [editable path="ConfigContainer/MarginContainer/VBoxContainer/CenterContainer/UiButton"]
 [editable path="ControlsContainer/MarginContainer/VBoxContainer/CenterContainer2/UiButton"]
+[editable path="CreditrsContainer/MarginContainer/VBoxContainer/CenterContainer2/UiButton"]

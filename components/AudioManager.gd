@@ -17,7 +17,10 @@ var interjections_good = [
 "res://audio/interjections/success_exclamation_4.wav",
 "res://audio/interjections/success_exclamation_5.wav"]
 
-var interjections_bad = ["res://audio/cancel_or_back.wav"]
+var interjections_bad = ["res://audio/interjections/failure_exclamation_1.wav", 
+"res://audio/interjections/failure_exclamation_2.wav", 
+"res://audio/interjections/failure_exclamation_3.wav", 
+"res://audio/interjections/failure_exclamation_4.wav"]
 
 func _ready() -> void:
 	master_index = AudioServer.get_bus_index("Master")
@@ -65,18 +68,13 @@ func disconnect_finished(callable:Callable):
 	music_audio_stream_player.finished.disconnect(callable)
 
 func play_interjection_good():
-	music_audio_stream_player_2.stream = load(interjections_good.pick_random())
+	var picked = interjections_good.pick_random()
+	music_audio_stream_player_2.stream = load(picked)
+	music_audio_stream_player_2.seek(0)
 	music_audio_stream_player_2.play()
 
 func play_interjection_bad():
-	music_audio_stream_player_2.stream = load(interjections_bad.pick_random())
+	var picked = interjections_bad.pick_random()
+	music_audio_stream_player_2.stream = load(picked)
+	music_audio_stream_player_2.seek(0)
 	music_audio_stream_player_2.play()
-
-
-func play_ok_sound():
-	sounds_audio_stream_player.stream = preload("res://audio/374104__sgossner__trumpet-staccato-f4-sum_shtrumpet_stac_g3_v1_rr2.wav")
-	sounds_audio_stream_player.play()
-
-func play_back_sound():
-	sounds_audio_stream_player.stream = preload("res://audio/375739__sgossner__woodclick-wood_click_ff_2.wav")
-	sounds_audio_stream_player.play()

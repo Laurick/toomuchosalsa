@@ -8,6 +8,8 @@ const AZUCAR_SUBTITLES_FORMAT = "[color=white]%s[/color][color=#00B3EE]%s[/color
 @onready var subtitles_label: RichTextLabel = $SubtitlesLabel
 @onready var ui_button: TextureButton = $UI/MarginContainer/UiButton
 
+var pause_available = false
+
 func _ready() -> void:
 	score_label.text = "0"
 
@@ -19,7 +21,12 @@ func show_pause():
 	pause_container.show()
 
 func show_pause_button():
+	pause_available = true
 	ui_button.show()
+
+func hide_pause_button():
+	pause_available = false
+	ui_button.hide()
 
 func hide_pause():
 	pause_container.hide()
@@ -37,7 +44,7 @@ func add_subtitle(subtitle:SubtitleEntry = null, time:float = 0):
 	subtitles_label.text = NORMAL_SUBTITLES_FORMAT % [green_text, white_text]
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Pause"):
+	if pause_available and event.is_action_pressed("Pause"):
 		if get_tree().paused:
 			hide_pause()
 		else:

@@ -4,8 +4,7 @@
 
 [resource]
 script = ExtResource("1_u2rlt")
-text = "l;0.1;SPACE;PUSH
-l;1.2;SPACE;PUSH
+text = "l;1.2;SPACE;PUSH
 r;1.8;SPACE;PUSH
 l;2.4;SPACE;PUSH
 r;3.0;SPACE;PUSH

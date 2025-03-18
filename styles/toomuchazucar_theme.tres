@@ -1,8 +1,7 @@
-[gd_resource type="Theme" load_steps=12 format=3 uid="uid://buorrie1vc8nq"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://buorrie1vc8nq"]
 
 [ext_resource type="StyleBox" uid="uid://lsn48mo682dy" path="res://styles/button_flat.tres" id="1_8j3m6"]
 [ext_resource type="FontFile" uid="uid://blufgu2wy0aca" path="res://fonts/Federo-Regular.ttf" id="1_jufdx"]
-[ext_resource type="FontFile" uid="uid://db3mk2mymkxl4" path="res://fonts/Itim-Regular.ttf" id="1_kt2ec"]
 [ext_resource type="StyleBox" uid="uid://b7p3g6s50tvow" path="res://styles/button_2.tres" id="2_lo6wa"]
 [ext_resource type="StyleBox" uid="uid://dyjl70ty81i8i" path="res://styles/button_1.tres" id="3_lo6wa"]
 
@@ -43,5 +42,5 @@ HSlider/styles/grabber_area = SubResource("StyleBoxFlat_lo6wa")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_jhe3c")
 HSlider/styles/slider = SubResource("StyleBoxFlat_2f8pq")
 Label/font_sizes/font_size = 24
-Label/fonts/font = ExtResource("1_kt2ec")
+Label/fonts/font = ExtResource("1_jufdx")
 Panel/styles/panel = ExtResource("1_8j3m6")

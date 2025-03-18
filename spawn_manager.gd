@@ -140,7 +140,7 @@ func check_notes(side_node):
 
 	var banner = banner_scene.instantiate()
 	#print(distance)
-	if distance < 25:
+	if distance < 28:
 		banner.set_perfect()
 		note.succeded = true
 		note_success.emit(note._type == Constants.TYPES.HOLD)

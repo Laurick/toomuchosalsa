@@ -7,6 +7,9 @@ const AZUCAR_SUBTITLES_FORMAT = "[color=white]%s[/color][color=#00B3EE]%s[/color
 @onready var pause_container: Control = $PauseContainer
 @onready var subtitles_label: RichTextLabel = $SubtitlesLabel
 @onready var ui_button: TextureButton = $UI/MarginContainer/UiButton
+@onready var stage: Label = $VBoxContainer/Stage
+@onready var h_box_container: HBoxContainer = $VBoxContainer/HBoxContainer
+@onready var v_box_container: VBoxContainer = $VBoxContainer
 
 var pause_available = false
 
@@ -49,3 +52,17 @@ func _input(event: InputEvent) -> void:
 			hide_pause()
 		else:
 			show_pause()
+
+
+func on_stage_changed(new_stage:String, song_idx:int):
+	v_box_container.show()
+	stage.text = new_stage
+	var new_index = song_idx-1
+	var color = Color.from_string("#00b3ee", Color.BLUE_VIOLET)
+	for i in range(0, new_index):
+		h_box_container.get_child(i).self_modulate = color
+	if new_index < h_box_container.get_child_count():
+		h_box_container.get_child(new_index).self_modulate = Color.from_string("#ffb6ec", Color.BLUE_VIOLET)
+
+func hide_panel():
+	v_box_container.hide()

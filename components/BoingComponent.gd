@@ -8,6 +8,6 @@ func _ready() -> void:
 
 func _on_visibility_changed() -> void:
 	if target.visible:
-		create_tween().tween_property(target, "scale", Vector2.ONE, 0.3).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EaseType.EASE_OUT)
+		create_tween().tween_property(target, "scale", Vector2.ONE, 0.1)
 	else:
-		create_tween().tween_property(target, "scale", Vector2.ZERO, 0.3).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EaseType.EASE_OUT)
+		create_tween().tween_property(target, "scale", Vector2.ZERO, 0.1)

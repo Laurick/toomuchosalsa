@@ -42,6 +42,8 @@ func parse_song(song_name:String) -> Dictionary[String, Dictionary]:
 
 
 func read_song_file(file_path:String) -> PackedStringArray:
+	if file_path == "":
+		return []
 	var file_content:String = load(file_path).text
 	if file_content == "": 
 		printerr("Oh no, file not present :( -> %s" % file_path)

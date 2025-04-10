@@ -19,17 +19,17 @@ var playing = false
 
 var song_idx = 0
 var song_list = [
-	{"song": "music_intro.wav", "inputs": "res://audio/song/music_intro.tres", "text":"res://audio/song/music_intro_sub.tres", "len":30.3},
-	{"song": "music_loop_1.wav", "inputs": "res://audio/song/music_loop_1.tres", "text":"res://audio/song/music_loop_1_sub.tres", "len":19.2},
-	{"song": "music_loop_2.wav", "inputs": "res://audio/song/music_loop_2.tres", "text":"res://audio/song/music_loop_2_sub.tres", "len":19.2},
-	{"song": "music_loop_3.wav", "inputs": "res://audio/song/music_loop_3.tres", "text":"res://audio/song/music_loop_3_sub.tres", "len":19.2},
-	{"song": "music_loop_4.wav", "inputs": "res://audio/song/music_loop_4.tres", "text":"res://audio/song/music_loop_4_sub.tres", "len":19.2},
-	{"song": "music_loop_5.wav", "inputs": "res://audio/song/music_loop_5.tres", "text":"res://audio/song/music_loop_5_sub.tres", "len":19.2},
-	{"song": "music_loop_6.wav", "inputs": "res://audio/song/music_loop_6.tres", "text":"res://audio/song/music_loop_6_sub.tres", "len":19.2},
-	{"song": "music_loop_7.wav", "inputs": "res://audio/song/music_loop_7.tres", "text":"res://audio/song/music_loop_7_sub.tres", "len":19.2},
-	{"song": "music_loop_8.wav", "inputs": "res://audio/song/music_loop_8.tres", "text":"res://audio/song/music_loop_8_sub.tres", "len":19.2},
-	{"song": "music_loop_9.wav", "inputs": "res://audio/song/music_loop_9.tres", "text":"res://audio/song/music_loop_9_sub.tres", "len":19.2},
-	{"song": "music_loop_10.wav", "inputs": "res://audio/song/music_loop_10.tres", "text":"res://audio/song/music_loop_10_sub.tres", "len":19.2},
+	{"name":"Presentación", "song": "music_intro.wav", "inputs": "", "text":"res://audio/song/music_intro_sub.tres", "len":30.3},
+	{"name":"Instrumental 1", "song": "music_loop_1.wav", "inputs": "res://audio/song/music_loop_1.tres", "text":"res://audio/song/music_loop_1_sub.tres", "len":19.2},
+	{"name":"Estrofa 1", "song": "music_loop_2.wav", "inputs": "res://audio/song/music_loop_2.tres", "text":"res://audio/song/music_loop_2_sub.tres", "len":19.2},
+	{"name":"Estrofa 2", "song": "music_loop_3.wav", "inputs": "res://audio/song/music_loop_3.tres", "text":"res://audio/song/music_loop_3_sub.tres", "len":19.2},
+	{"name":"Transición 1", "song": "music_loop_4.wav", "inputs": "res://audio/song/music_loop_4.tres", "text":"res://audio/song/music_loop_4_sub.tres", "len":19.2},
+	{"name":"Estribillo 1", "song": "music_loop_5.wav", "inputs": "res://audio/song/music_loop_5.tres", "text":"res://audio/song/music_loop_5_sub.tres", "len":19.2},
+	{"name":"Insturmental 2", "song": "music_loop_6.wav", "inputs": "res://audio/song/music_loop_6.tres", "text":"res://audio/song/music_loop_6_sub.tres", "len":19.2},
+	{"name":"Estrofa 3", "song": "music_loop_7.wav", "inputs": "res://audio/song/music_loop_7.tres", "text":"res://audio/song/music_loop_7_sub.tres", "len":19.2},
+	{"name":"Estrofa 4", "song": "music_loop_8.wav", "inputs": "res://audio/song/music_loop_8.tres", "text":"res://audio/song/music_loop_8_sub.tres", "len":19.2},
+	{"name":"Transición 2", "song": "music_loop_9.wav", "inputs": "res://audio/song/music_loop_9.tres", "text":"res://audio/song/music_loop_9_sub.tres", "len":19.2},
+	{"name":"Estribillo 2", "song": "music_loop_5.wav", "inputs": "res://audio/song/music_loop_10.tres", "text":"res://audio/song/music_loop_10_sub.tres", "len":19.2},
 ]
 var srt_parser:SRTParser = SRTParser.new()
 var subtitles:Array[SubtitleEntry] = []
@@ -46,7 +46,8 @@ func _ready() -> void:
 	spawn_manager.note_failed.connect(fail)
 	spawn_manager.note_success.connect(success)
 	AudioManager.connect_finished(_on_song_finished)
-
+	$Game/AnimatedSprite2D2.play("default")
+	$Game/AnimatedSprite2D3.play("default")
 
 func init_song(looped:bool = true):
 	if looped and loop_dance_score == 0:
@@ -56,20 +57,18 @@ func init_song(looped:bool = true):
 		interjection_played = false
 		playing = false
 	if song_idx > song_list.size()-1:
-		win_game()
 		return
 
 	var song = song_list[song_idx]
 	
-	if !Constants.spectator_mode:
-		spawn_manager.play_song(song["inputs"])
+	spawn_manager.play_song(song["inputs"])
 
 
 #TODO ver tema puntuaciones
 func init_music_track(_looped:bool = true):
+	if song_idx == 0:
+		AudioManager.stop_ambient_sound()
 	dancers.play("default")
-	$Game/AnimatedSprite2D2.play("default")
-	$Game/AnimatedSprite2D3.play("default")
 	var song = song_list[song_idx]
 	AudioManager.play_music(song["song"])
 	song_playing = true
@@ -118,6 +117,10 @@ func _process(delta: float) -> void:
 		canvas_layer.add_subtitle()
 
 func _on_song_finished():
+	if song_idx >= song_list.size():
+		win_game()
+		return
+	canvas_layer.on_stage_changed(song_list[song_idx]["name"],song_idx)
 	init_music_track()
 
 
@@ -133,6 +136,7 @@ func _on_exit_button_pressed() -> void:
 
 func win_game():
 	canvas_layer.hide_pause_button()
+	canvas_layer.hide_panel()
 	playing = false
 	AudioManager.play_music("music_outro.wav")
 	# bye dancers

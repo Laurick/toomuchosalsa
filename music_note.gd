@@ -1,6 +1,7 @@
 extends Node2D
 
 signal note_failed()
+signal note_auto(note)
 
 @export var center:Marker2D
 @onready var note_image: Sprite2D = $NoteImage
@@ -16,6 +17,10 @@ var _arrow: Constants.INPUTS
 var _color: Color
 var _type: Constants.TYPES
 var direction:Vector2
+var last_distance: float = 99999
+
+var trail_frames = 2
+var _frames = 0
 
 func _ready() -> void:
 	appear = Time.get_ticks_msec()
@@ -46,14 +51,32 @@ func _process(delta: float) -> void:
 			check()
 		return
 
-	global_position = global_position + (velocity*delta*direction)
-
+	var d =  global_position.distance_to(center.global_position)
 	if arrival:
 		leaving = true
-		global_position = center.global_position
-		#print(name+" tarda: " +str(Time.get_ticks_msec()-appear))
-	elif global_position.distance_to(center.global_position) < 8:
-		arrival = true
+		create_tween().tween_property(self, "modulate:a", 0, 0.192)
+		# print(name+" tarda: " +str(Time.get_ticks_msec()-appear))
+	else:
+		global_position = global_position + (velocity*delta*direction)
+		if last_distance < d or d < 0.8:
+			global_position = center.global_position
+			if Constants.spectator_mode:
+				note_auto.emit(self)
+			arrival = true
+	last_distance = d
+	if _frames == trail_frames:
+		_frames = 0
+		create_trail()
+	else:
+		_frames += 1
+
+
+func create_trail():
+	var trail = preload("res://trail.tscn").instantiate()
+	trail.global_position = global_position
+	trail.texture = note_image.texture
+	trail.modulate = _color
+	get_tree().get_root().add_child(trail)
 
 func check():
 	if !succeded:

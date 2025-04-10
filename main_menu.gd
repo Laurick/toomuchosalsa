@@ -5,7 +5,8 @@ extends Control
 @onready var creditrs_container: PanelContainer = $CreditrsContainer
 
 func _ready() -> void:
-	AudioManager.play_music("ambient.wav")
+	AudioManager.play_ambient_sound()
+	Tween
 	
 func _on_play_button_pressed() -> void:
 	Constants.spectator_mode = false

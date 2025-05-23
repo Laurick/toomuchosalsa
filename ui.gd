@@ -20,8 +20,12 @@ func update_score_label(score:int):
 	score_label.text = str(score)
 
 func show_pause():
-	get_tree().paused = true
-	pause_container.show()
+	if !pause_container.visible:
+		get_tree().paused = true
+		pause_container.show()
+	else:
+		get_tree().paused = false
+		pause_container.hide()
 
 func show_pause_button():
 	pause_available = true
